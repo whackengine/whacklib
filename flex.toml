@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "packages/flex.externals.js",
+    "packages/as3.lang",
+    "packages/flex.core",
+]

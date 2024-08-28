@@ -1,0 +1,13 @@
+[package]
+name = "as3.lang"
+version = "1.0.0"
+author = "Matheus Dias de Souza <hydroperfox@gmail.com>"
+license = "Apache-2.0"
+description = ""
+
+[[source]]
+path = "src"
+include = true
+
+[dependencies]
+"flex.externals.js" = { path = "../flex.externals.js", version = "1" }

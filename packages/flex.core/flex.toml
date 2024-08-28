@@ -1,0 +1,13 @@
+[package]
+name = "flex.core"
+version = "1.0.0"
+author = "Matheus Dias de Souza <hydroperfox@gmail.com>"
+license = "Apache-2.0"
+description = ""
+
+[[source]]
+path = "src"
+include = true
+
+[dependencies]
+"as3.lang" = { path = "../as3.lang", version = "1" }
