@@ -1,6 +1,6 @@
 package
 {
-    [Skywhack::External(slots="3", name="regexpclass")]
+    [SkyWhack::External(slots="3", name="regexpclass")]
     public dynamic class RegExp
     {
         public native function RegExp(re:String, flags:String);

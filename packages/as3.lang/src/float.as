@@ -1,6 +1,6 @@
 package
 {
-    [Skywhack::External(slots="2")]
+    [SkyWhack::External(slots="2")]
     public final class float
     {
         public native function float(arg:*);

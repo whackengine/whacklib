@@ -13,7 +13,7 @@ package sw.utils
      * weak keys must be a managed Object and not for example a primitive.
      * An error is thrown when using a illegal key.
      */
-    [Skywhack::External(slots="3")]
+    [SkyWhack::External(slots="3")]
     public class Dictionary
     {
         public native function Dictionary(weakKeys:Boolean = false);

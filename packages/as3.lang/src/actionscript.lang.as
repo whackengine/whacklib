@@ -2,16 +2,16 @@ package
 {
     import sw.externals.js.lex;
 
-    [Skywhack::External]
+    [SkyWhack::External]
     public namespace AS3 = "http://skywhack.net/AS3/2024/builtin";
 
-    [Skywhack::External]
+    [SkyWhack::External]
     public const undefined: * = void 0;
 
-    [Skywhack::External]
+    [SkyWhack::External]
     public const NaN: Number = 0 / 0;
 
-    [Skywhack::External]
+    [SkyWhack::External]
     public const Infinity: Number = 1 / 0;
 
     /**
@@ -53,7 +53,7 @@ package
  
     }
 
-    [Skywhack::External]
+    [SkyWhack::External]
     public native function isXMLName(str:String):Boolean;
 
     public function parseFloat(str:String):Number

@@ -1,5 +1,5 @@
 /**
- * The core classes of the Skywhack platform.
+ * The core classes of the SkyWhack platform.
  */
 package
 {

@@ -1,6 +1,6 @@
 package
 {
-    [Skywhack::External(slots="2")]
+    [SkyWhack::External(slots="2")]
     public final class uint
     {
         public native function uint(arg:*);

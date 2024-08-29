@@ -1,6 +1,6 @@
 package
 {
-    [Skywhack::External(slots="3")]
+    [SkyWhack::External(slots="3")]
     public final class String
     {
         public native function String(arg:String);

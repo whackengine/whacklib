@@ -1,6 +1,6 @@
 package
 {
-    [Skywhack::External(slots="3")]
+    [SkyWhack::External(slots="3")]
     public final class Date
     {
         public native function Date(yearOrTimevalue:Object = undefined, month:Number = 0, date:Number = 1, hour:Number = 0, minute:Number = 0, second:Number = 0, millisecond:Number = 0);
