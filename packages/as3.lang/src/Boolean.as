@@ -1,6 +1,6 @@
 package
 {
-    [Flex::External(slots="3")]
+    [Skywhack::External(slots="3")]
     public final class Boolean
     {
         public native function Boolean(arg:*);

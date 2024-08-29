@@ -1,6 +1,6 @@
-package flex.utils
+package sw.utils
 {
-    [Flex::External(slots="3")]
+    [Skywhack::External(slots="3")]
     public class ByteArray implements IDataInput, IDataOutput
     {
         public native function ByteArray();

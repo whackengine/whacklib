@@ -1,5 +1,5 @@
 /**
- * The core classes of the Flex platform.
+ * The core classes of the Skywhack platform.
  */
 package
 {

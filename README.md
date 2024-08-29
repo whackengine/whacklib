@@ -1,6 +1,6 @@
-# Flex Globals
+# Skywhack Globals
 
-This repository contains the ActionScript sources for all of the Flex globals, including the base component set.
+This repository contains the ActionScript sources for all of the Skywhack globals, including the base component set.
 
 ## License
 

@@ -1,4 +1,4 @@
-package flex.utils
+package sw.utils
 {
     /**
      * Defines constants that define the byte order used when

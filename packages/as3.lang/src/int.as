@@ -1,6 +1,6 @@
 package
 {
-    [Flex::External(slots="2")]
+    [Skywhack::External(slots="2")]
     public final class int
     {
         public native function int(arg:*);

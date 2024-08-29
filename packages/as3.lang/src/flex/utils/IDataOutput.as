@@ -1,6 +1,6 @@
-package flex.utils
+package sw.utils
 {
-    [Flex::External]
+    [Skywhack::External]
     public interface IDataOutput
     {
         /**

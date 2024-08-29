@@ -14,7 +14,7 @@ package
      * new <T> [v1, vN]
      * ```
      */
-    [Flex::External(slots="4")]
+    [Skywhack::External(slots="4")]
     public final class Vector.<T>
     {
         public native function Vector(length:uint = 0, fixed:Boolean = false);

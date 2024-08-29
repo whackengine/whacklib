@@ -10,4 +10,4 @@ path = "src"
 include = true
 
 [dependencies]
-"flex.externals.js" = { path = "../flex.externals.js", version = "1" }
+"sw.externals.js" = { path = "../sw.externals.js", version = "1" }

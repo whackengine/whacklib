@@ -1,7 +1,7 @@
 /**
  * Defines special compiler functions that output specialized JavaScript code.
  */
-package flex.externals.js
+package sw.externals.js
 {
     /**
      * Host JavaScript compiler function: immediately invoked function expression
@@ -10,9 +10,9 @@ package flex.externals.js
      * @example
      * 
      * ```
-     * import flex.externals.js.iife;
+     * import sw.externals.js.iife;
      * 
-     * const z = flex.externals.js.iife(<![CDATA[
+     * const z = sw.externals.js.iife(<![CDATA[
      *     return x + y;
      * ]]>, x, y);
      * ```

@@ -1,5 +1,5 @@
-package flex.utils
+package sw.utils
 {
-    [Flex::External]
-    public namespace flex_proxy = "http://hydroper.com/2024/actionscript/flex/proxy";
+    [Skywhack::External]
+    public namespace sw_proxy = "http://skywhack.net/2024/actionscript/sw/proxy";
 }

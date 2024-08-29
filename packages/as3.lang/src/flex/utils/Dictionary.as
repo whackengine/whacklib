@@ -1,4 +1,4 @@
-package flex.utils
+package sw.utils
 {
     /**
      * A collection of key-value pairs.
@@ -13,7 +13,7 @@ package flex.utils
      * weak keys must be a managed Object and not for example a primitive.
      * An error is thrown when using a illegal key.
      */
-    [Flex::External(slots="3")]
+    [Skywhack::External(slots="3")]
     public class Dictionary
     {
         public native function Dictionary(weakKeys:Boolean = false);
