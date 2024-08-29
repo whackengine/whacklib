@@ -1,6 +1,6 @@
 package
 {
-    [SkyWhack::External(slots="4")]
+    [SW::External(slots="4")]
     public final class Namespace
     {
         public native function Namespace(arg1:*, arg2:* = undefined);

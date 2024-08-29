@@ -1,6 +1,6 @@
 package sw.utils
 {
-    [SkyWhack::External(slots="3")]
+    [SW::External(slots="3")]
     public class ByteArray implements IDataInput, IDataOutput
     {
         public native function ByteArray();

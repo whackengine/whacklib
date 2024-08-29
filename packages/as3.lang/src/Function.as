@@ -1,6 +1,6 @@
 package
 {
-    [SkyWhack::External(slots="3")]
+    [SW::External(slots="3")]
     public final class Function
     {
         public native function Function();

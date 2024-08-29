@@ -1,6 +1,6 @@
 package sw.utils
 {
-    [SkyWhack::External(slots="2")]
+    [SW::External(slots="2")]
     public class Proxy
     {
         sw_proxy native function callProperty(name:*, ...rest : [*]):*;

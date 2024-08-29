@@ -3,7 +3,7 @@ package
     /**
      * Dynamic size collection. Indices identifying elements start from the number zero.
      */
-    [SkyWhack::External(slots="3")]
+    [SW::External(slots="3")]
     public dynamic class Array.<T>
     {
         public native function Array(...values : [*]);

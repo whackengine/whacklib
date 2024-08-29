@@ -1,6 +1,6 @@
 package sw.utils
 {
-    [SkyWhack::External]
+    [SW::External]
     public interface IDataOutput
     {
         /**
