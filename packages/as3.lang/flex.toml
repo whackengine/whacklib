@@ -10,4 +10,4 @@ path = "src"
 include = true
 
 [dependencies]
-"sw.externals.js" = { path = "../sw.externals.js", version = "1" }
+"whack.externals.js" = { path = "../whack.externals.js", version = "1" }

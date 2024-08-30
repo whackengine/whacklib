@@ -1,6 +1,6 @@
 package
 {
-    [SW::External(slots="3")]
+    [Whack::External(slots="3")]
     public final class Promise.<T>
     {
         public native function Promise(executor : function(function(T):void, function(*):void):void);

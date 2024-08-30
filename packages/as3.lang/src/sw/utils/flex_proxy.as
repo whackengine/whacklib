@@ -1,5 +1,5 @@
-package sw.utils
+package whack.utils
 {
-    [SW::External]
-    public namespace sw_proxy = "http://skywhack.net/2024/actionscript/sw/proxy";
+    [Whack::External]
+    public namespace sw_proxy = "http://whack.net/2024/actionscript/whack/proxy";
 }

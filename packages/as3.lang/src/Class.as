@@ -3,7 +3,7 @@ package
     /**
      * Represents the static object of a class or interface definition.
      */
-    [SW::External(slots="3")]
+    [Whack::External(slots="3")]
     public class Class
     {
     }

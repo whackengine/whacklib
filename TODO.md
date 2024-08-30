@@ -2,9 +2,9 @@
 
 ## Packages
 
-### sw.core.\*
+### whack.core.\*
 
-(Inside sw.core)
+(Inside whack.core)
 
 Includes at least the `Application` and `UIComponent` classes.
 
@@ -13,25 +13,25 @@ Mechanisms:
 - Register shortcut actions (keyboard and gamepad) in an application, including global shortcut events (such as update, button press, button release) and retrieving button pressure.
 - Internationalization in an application, including global language events.
 
-### sw.controls.\*
+### whack.controls.\*
 
-(Inside sw.core)
+(Inside whack.core)
 
 For the `new UIComponent()` constructor, throw an `Error` for server side (the Node.js engine).
 
-## sw.layout.\*
+## whack.layout.\*
 
-(Inside sw.core)
+(Inside whack.core)
 
-## sw.skins.\*
+## whack.skins.\*
 
-(Inside sw.skins)
+(Inside whack.skins)
 
-### sw.gfx.\*
+### whack.gfx.\*
 
-(Outside sw.core)
+(Outside whack.core)
 
-sw.gfx.\* is implemented in an optional package that the user may depend in. It includes:
+whack.gfx.\* is implemented in an optional package that the user may depend in. It includes:
 
 - The `Canvas` user interface component.
 - The `DisplayObject` hierarchy of classes (not the same concept as Flash Display List).

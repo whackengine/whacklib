@@ -1,10 +1,10 @@
 package
 {
-    import sw.externals.js.*;
+    import whack.externals.js.*;
 
     public final class JSON
     {
-        private static const m_ns:* = sw.externals.js.lex("JSON");
+        private static const m_ns:* = whack.externals.js.lex("JSON");
 
         public function JSON()
         {
@@ -84,7 +84,7 @@ package
             const ctor = getas3constructor(val);
             if (ctor === Array)
             {
-                const r = sw.externals.js.newarray();
+                const r = whack.externals.js.newarray();
                 for each (var v in val)
                 {
                     r.push(as3jsontojsjson(v));
@@ -93,7 +93,7 @@ package
             }
             else if (ctor === Object)
             {
-                const r = sw.externals.js.newplainobj();
+                const r = whack.externals.js.newplainobj();
                 for (var k in val)
                 {
                     r[k] = as3jsontojsjson(val[k]);

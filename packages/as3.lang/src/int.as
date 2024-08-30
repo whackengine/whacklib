@@ -1,6 +1,6 @@
 package
 {
-    [SW::External(slots="2")]
+    [Whack::External(slots="2")]
     public final class int
     {
         public native function int(arg:*);

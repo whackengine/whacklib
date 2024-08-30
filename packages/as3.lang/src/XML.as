@@ -1,6 +1,6 @@
 package
 {
-    [SW::External(slots="3")]
+    [Whack::External(slots="3")]
     public final class XML
     {
         public native function XML(val:*);

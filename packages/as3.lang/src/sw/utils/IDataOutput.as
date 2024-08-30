@@ -1,6 +1,6 @@
-package sw.utils
+package whack.utils
 {
-    [SW::External]
+    [Whack::External]
     public interface IDataOutput
     {
         /**

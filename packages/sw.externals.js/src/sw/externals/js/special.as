@@ -1,7 +1,7 @@
 /**
  * Defines special compiler functions that output specialized JavaScript code.
  */
-package sw.externals.js
+package whack.externals.js
 {
     /**
      * Host JavaScript compiler function: immediately invoked function expression
@@ -10,9 +10,9 @@ package sw.externals.js
      * @example
      * 
      * ```
-     * import sw.externals.js.iife;
+     * import whack.externals.js.iife;
      * 
-     * const z = sw.externals.js.iife(<![CDATA[
+     * const z = whack.externals.js.iife(<![CDATA[
      *     return x + y;
      * ]]>, x, y);
      * ```

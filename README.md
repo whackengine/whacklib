@@ -1,6 +1,6 @@
-# SkyWhack Globals
+# Whack Globals
 
-This repository contains the ActionScript sources for all of the SkyWhack globals, including the base component set.
+This repository contains the ActionScript sources for all of the Whack globals, including the base component set.
 
 ## License
 

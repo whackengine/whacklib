@@ -1,6 +1,6 @@
-package sw.utils
+package whack.utils
 {
-    [SW::External(slots="3")]
+    [Whack::External(slots="3")]
     public class ByteArray implements IDataInput, IDataOutput
     {
         public native function ByteArray();

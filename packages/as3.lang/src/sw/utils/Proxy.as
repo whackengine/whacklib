@@ -1,6 +1,6 @@
-package sw.utils
+package whack.utils
 {
-    [SW::External(slots="2")]
+    [Whack::External(slots="2")]
     public class Proxy
     {
         sw_proxy native function callProperty(name:*, ...rest : [*]):*;
