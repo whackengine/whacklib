@@ -57,55 +57,55 @@ package whack.js
     /**
      * Host JavaScript compiler function.
      */
-    public native function as3arraytojsarray(obj:*):*;
+    public native function AS3_array_to_JS_array(obj:*):*;
 
     /**
      * Host JavaScript compiler function.
      */
-    public native function jsarraytoas3array(obj:*):*;
+    public native function JS_array_to_AS3_array(obj:*):*;
 
     /**
      * Host JavaScript compiler function.
      */
-    public native function as3plainobjtojsplainobj(obj:*):*;
+    public native function AS3_plainobject_to_JS_plainobject(obj:*):*;
 
     /**
      * Host JavaScript compiler function.
      */
-    public native function jsplainobjtojsplainobj(obj:*):*;
+    public native function JS_plainobject_to_AS3_plainobject(obj:*):*;
 
     /**
      * Host JavaScript compiler function.
      */
-    public native function as3functojsfunc(obj:*):*;
+    public native function AS3_function_to_JS_function(obj:*):*;
 
     /**
      * Host JavaScript compiler function.
      */
-    public native function jsfunctoas3func(obj:*):*;
+    public native function JS_function_to_AS3_function(obj:*):*;
 
     /**
      * Host JavaScript compiler function.
      */
-    public native function isas3obj(obj:*):*;
+    public native function is_AS3_object(obj:*):*;
+
+    /**
+     * Host JavaScript compiler function for constructing a JavaScript plain object.
+     */
+    public native function new_plainobject():*;
+
+    /**
+     * Host JavaScript compiler function for constructing a JavaScript array.
+     */
+    public native function new_array():*;
 
     /**
      * Host JavaScript compiler function.
      */
-    public native function newplainobj():*;
+    public native function get_AS3_constructor(obj):*;
 
     /**
      * Host JavaScript compiler function.
      */
-    public native function newarray():*;
-
-    /**
-     * Host JavaScript compiler function.
-     */
-    public native function getas3constructor(obj):*;
-
-    /**
-     * Host JavaScript compiler function.
-     */
-    public native function getjsconstructor(obj):*;
+    public native function get_JS_constructor(obj):*;
 }

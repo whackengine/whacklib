@@ -23,7 +23,7 @@ package
         {
             if (reviver)
             {
-                reviver = as3functojsfunc(function(k:*, v:*, ctx:*):*
+                reviver = AS3_function_to_JS_function(function(k:*, v:*, ctx:*):*
                 {
                     if (ctx)
                     {
@@ -42,7 +42,7 @@ package
         {
             if (typeof obj == "object")
             {
-                const ctor = getjsconstructor(obj);
+                const ctor = get_JS_constructor(obj);
                 if (ctor === lex("Array"))
                 {
                     const r:[*] = [];
@@ -69,11 +69,11 @@ package
         {
             if (replacer is Function)
             {
-                replacer = as3functojsfunc(replacer);
+                replacer = AS3_function_to_JS_function(replacer);
             }
             else if (replacer is Array)
             {
-                replacer = as3arraytojsarray(replacer);
+                replacer = AS3_array_to_JS_array(replacer);
             }
 
             return m_ns.stringify(as3jsontojsjson(value), replacer, space);
@@ -81,10 +81,10 @@ package
 
         private static function as3jsontojsjson(val:*):*
         {
-            const ctor = getas3constructor(val);
+            const ctor = get_AS3_constructor(val);
             if (ctor === Array)
             {
-                const r = whack.js.newarray();
+                const r = whack.js.new_array();
                 for each (var v in val)
                 {
                     r.push(as3jsontojsjson(v));
@@ -93,7 +93,7 @@ package
             }
             else if (ctor === Object)
             {
-                const r = whack.js.newplainobj();
+                const r = whack.js.new_plainobject();
                 for (var k in val)
                 {
                     r[k] = as3jsontojsjson(val[k]);

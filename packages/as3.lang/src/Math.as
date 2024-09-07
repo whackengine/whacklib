@@ -109,7 +109,7 @@ package
             if (rest.length !== 0)
             {
                 rest.unshift(val1, val2);
-                return m_ns.max.apply(undefined, as3arraytojsarray(rest));
+                return m_ns.max.apply(undefined, AS3_array_to_JS_array(rest));
             }
             return m_ns.max(val1, val2);
         }
@@ -119,7 +119,7 @@ package
             if (rest.length !== 0)
             {
                 rest.unshift(val1, val2);
-                return m_ns.min.apply(undefined, as3arraytojsarray(rest));
+                return m_ns.min.apply(undefined, AS3_array_to_JS_array(rest));
             }
             return m_ns.min(val1, val2);
         }
