@@ -1,10 +1,10 @@
 package
 {
-    import whack.externals.js.*;
+    import whack.js.*;
 
     public final class Math
     {
-        private static const m_ns:* = whack.externals.js.lex("Math");
+        private static const m_ns:* = whack.js.lex("Math");
 
         public static const E:Number = 2.71828182845905;
         public static const LN10:Number = 2.302585092994046;

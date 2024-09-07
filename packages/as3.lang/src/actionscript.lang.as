@@ -1,6 +1,6 @@
 package
 {
-    import whack.externals.js.lex;
+    import whack.js.lex;
 
     [Whack::External]
     public namespace AS3 = "http://whack.net/AS3/2024/builtin";
@@ -19,37 +19,37 @@ package
      */
     public function trace(...values : [*]):void
     {
-        whack.externals.js.lex("console").log(values.join("  "));
+        whack.js.lex("console").log(values.join("  "));
     }
 
     public function decodeURI(str:String):String
     {
-        return whack.externals.js.lex("decodeURI")(str);
+        return whack.js.lex("decodeURI")(str);
     }
 
     public function decodeURIComponent(str:String):String
     {
-        return whack.externals.js.lex("decodeURIComponent")(str);
+        return whack.js.lex("decodeURIComponent")(str);
     }
 
     public function encodeURI(str:String):String
     {
-        return whack.externals.js.lex("encodeURI")(str);
+        return whack.js.lex("encodeURI")(str);
     }
 
     public function encodeURIComponent(str:String):String
     {
-        return whack.externals.js.lex("encodeURIComponent")(str);
+        return whack.js.lex("encodeURIComponent")(str);
     }
 
     public function isFinite(val:Number):Boolean
     {
-        return whack.externals.js.lex("isFinite")(val);
+        return whack.js.lex("isFinite")(val);
     }
 
     public function isNaN(val:Number):Boolean
     {
-        return whack.externals.js.lex("isNaN")(val);
+        return whack.js.lex("isNaN")(val);
  
     }
 
@@ -58,11 +58,11 @@ package
 
     public function parseFloat(str:String):Number
     {
-        return whack.externals.js.lex("parseFloat")(str);
+        return whack.js.lex("parseFloat")(str);
     }
 
     public function parseInt(str:String, radix:uint = 0):Number
     {
-        return whack.externals.js.lex("parseInt")(str, radix);
+        return whack.js.lex("parseInt")(str, radix);
     }
 }
