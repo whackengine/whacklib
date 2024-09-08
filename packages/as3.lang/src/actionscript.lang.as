@@ -2,7 +2,6 @@ package
 {
     import whack.js.lex;
 
-    [Whack::External]
     public namespace AS3 = "http://whack.net/AS3/2024/builtin";
 
     [Whack::External]
