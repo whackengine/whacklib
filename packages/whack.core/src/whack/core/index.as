@@ -1,6 +1,6 @@
 /**
- * The core classes of the Whack platform.
+ * The core classes of the Whack engine.
  */
-package
+package whack.core
 {
 }
