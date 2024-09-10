@@ -15,11 +15,11 @@ package whack.utils
 
         public native function equals(other:ByteArray):Boolean;
 
-        public native function get length():uint;
-        public native function set length(val:uint):void;
+        public native final function get length():uint;
+        public native final function set length(val:uint):void;
 
-        public native function get position():uint;
-        public native function set position(val:uint):void;
+        public native final function get position():uint;
+        public native final function set position(val:uint):void;
 
         /**
          * @inheritDoc
