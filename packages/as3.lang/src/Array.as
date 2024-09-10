@@ -11,8 +11,8 @@ package
         /**
          * Returns the number of elements in the array.
          */
-        public native function get length():uint;
-        public native function set length(val:uint):void;
+        public native final function get length():uint;
+        public native final function set length(val:uint):void;
 
         /**
          * Concatenates the array with the specified arrays or elements
