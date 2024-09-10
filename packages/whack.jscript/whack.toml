@@ -1,5 +1,5 @@
 [package]
-name = "whack.js"
+name = "whack.jscript"
 version = "1.0.0"
 author = "Matheus Dias de Souza <hydroperfox@gmail.com>"
 license = "Apache-2.0"

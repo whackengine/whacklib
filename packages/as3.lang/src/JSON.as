@@ -1,10 +1,10 @@
 package
 {
-    import whack.js.*;
+    import whack.jscript.*;
 
     public final class JSON
     {
-        private static const m_ns:* = whack.js.lex("JSON");
+        private static const m_ns:* = whack.jscript.lex("JSON");
 
         public function JSON()
         {
@@ -84,7 +84,7 @@ package
             const ctor = get_AS3_constructor(val);
             if (ctor === Array)
             {
-                const r = whack.js.new_array();
+                const r = whack.jscript.new_array();
                 for each (var v in val)
                 {
                     r.push(as3jsontojsjson(v));
@@ -93,7 +93,7 @@ package
             }
             else if (ctor === Object)
             {
-                const r = whack.js.new_plainobject();
+                const r = whack.jscript.new_plainobject();
                 for (var k in val)
                 {
                     r[k] = as3jsontojsjson(val[k]);

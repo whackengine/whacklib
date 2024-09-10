@@ -1,6 +1,6 @@
 [workspace]
 members = [
-    "packages/whack.js",
+    "packages/whack.jscript",
     "packages/as3.lang",
     "packages/whack.core",
 ]
