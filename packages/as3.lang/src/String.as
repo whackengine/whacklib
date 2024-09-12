@@ -50,5 +50,15 @@ package
         AS3 native function toLowerCase():String;
 
         AS3 native function toUpperCase():String;
+
+        AS3 native function trim():String;
+
+        AS3 native function trimStart():String;
+
+        AS3 native function trimEnd():String;
+
+        AS3 native function trimLeft():String;
+
+        AS3 native function trimRight():String;
     }
 }
