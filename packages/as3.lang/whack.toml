@@ -10,4 +10,3 @@ path = "src"
 include = true
 
 [dependencies]
-"whack.jscript" = { path = "../whack.jscript", version = "1" }
