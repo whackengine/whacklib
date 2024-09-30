@@ -40,7 +40,7 @@ package
         {
             if (typeof obj == "object")
             {
-                const ctor = JS.getJSConstructor(obj);
+                const ctor = JS.javascriptConstructor(obj);
                 if (ctor === JS.lexical("Array"))
                 {
                     const r:[*] = [];
@@ -79,7 +79,7 @@ package
 
         private static function as3jsontojsjson(val:*):*
         {
-            const ctor = getAS3Constructor(val);
+            const ctor = actionscriptConstructor(val);
             if (ctor === Array)
             {
                 const r = JS.newArray();

@@ -34,8 +34,8 @@ package
 
         public static native function newArray():*;
 
-        public static native function getAS3Constructor(obj):*;
+        public static native function actionscriptConstructor(obj):*;
 
-        public static native function getJSConstructor(obj):*;
+        public static native function javascriptConstructor(obj):*;
     }
 }
