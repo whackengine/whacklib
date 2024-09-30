@@ -28,7 +28,7 @@ package
 
         public static native function toActionscriptFunction(obj:*):*;
 
-        public static native function isAS3Object(obj:*):*;
+        public static native function isActionscriptObject(obj:*):*;
 
         public static native function newPlainObject():*;
 
