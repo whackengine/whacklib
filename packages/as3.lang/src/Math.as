@@ -2,7 +2,7 @@ package
 {
     public final class Math
     {
-        private static const m_ns:* = JS.lex("Math");
+        private static const m_ns:* = JS.lexical("Math");
 
         public static const E:Number = 2.71828182845905;
         public static const LN10:Number = 2.302585092994046;
@@ -107,7 +107,7 @@ package
             if (rest.length !== 0)
             {
                 rest.unshift(val1, val2);
-                return m_ns.max.apply(undefined, AS3_array_to_JS_array(rest));
+                return m_ns.max.apply(undefined, toJavascriptArray(rest));
             }
             return m_ns.max(val1, val2);
         }
@@ -117,7 +117,7 @@ package
             if (rest.length !== 0)
             {
                 rest.unshift(val1, val2);
-                return m_ns.min.apply(undefined, AS3_array_to_JS_array(rest));
+                return m_ns.min.apply(undefined, toJavascriptArray(rest));
             }
             return m_ns.min(val1, val2);
         }

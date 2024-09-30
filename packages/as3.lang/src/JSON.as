@@ -2,7 +2,7 @@ package
 {
     public final class JSON
     {
-        private static const m_ns:* = JS.lex("JSON");
+        private static const m_ns:* = JS.lexical("JSON");
 
         public function JSON()
         {
@@ -21,7 +21,7 @@ package
         {
             if (reviver)
             {
-                reviver = AS3_function_to_JS_function(function(k:*, v:*, ctx:*):*
+                reviver = toJavascriptFunction(function(k:*, v:*, ctx:*):*
                 {
                     if (ctx)
                     {
@@ -40,8 +40,8 @@ package
         {
             if (typeof obj == "object")
             {
-                const ctor = JS.get_JS_constructor(obj);
-                if (ctor === JS.lex("Array"))
+                const ctor = JS.getJSConstructor(obj);
+                if (ctor === JS.lexical("Array"))
                 {
                     const r:[*] = [];
                     for each (var v in obj)
@@ -50,7 +50,7 @@ package
                     }
                     return r;
                 }
-                else if (ctor === JS.lex("Object"))
+                else if (ctor === JS.lexical("Object"))
                 {
                     const r = {};
                     for (var k in obj)
@@ -67,11 +67,11 @@ package
         {
             if (replacer is Function)
             {
-                replacer = JS.AS3_function_to_JS_function(replacer);
+                replacer = JS.toJavascriptFunction(replacer);
             }
             else if (replacer is Array)
             {
-                replacer = JS.AS3_array_to_JS_array(replacer);
+                replacer = JS.toJavascriptArray(replacer);
             }
 
             return m_ns.stringify(as3jsontojsjson(value), replacer, space);
@@ -79,10 +79,10 @@ package
 
         private static function as3jsontojsjson(val:*):*
         {
-            const ctor = get_AS3_constructor(val);
+            const ctor = getAS3Constructor(val);
             if (ctor === Array)
             {
-                const r = JS.new_array();
+                const r = JS.newArray();
                 for each (var v in val)
                 {
                     r.push(as3jsontojsjson(v));
@@ -91,7 +91,7 @@ package
             }
             else if (ctor === Object)
             {
-                const r = JS.new_plainobject();
+                const r = JS.newPlainObject();
                 for (var k in val)
                 {
                     r[k] = as3jsontojsjson(val[k]);

@@ -1,6 +1,6 @@
 package
 {
-    import JS.lex;
+    import JS.lexical;
 
     public namespace AS3 = "http://whack.net/AS3/2024/builtin";
 
@@ -18,37 +18,37 @@ package
      */
     public function trace(...values : [*]):void
     {
-        JS.lex("console").log(values.join("  "));
+        JS.lexical("console").log(values.join("  "));
     }
 
     public function decodeURI(str:String):String
     {
-        return JS.lex("decodeURI")(str);
+        return JS.lexical("decodeURI")(str);
     }
 
     public function decodeURIComponent(str:String):String
     {
-        return JS.lex("decodeURIComponent")(str);
+        return JS.lexical("decodeURIComponent")(str);
     }
 
     public function encodeURI(str:String):String
     {
-        return JS.lex("encodeURI")(str);
+        return JS.lexical("encodeURI")(str);
     }
 
     public function encodeURIComponent(str:String):String
     {
-        return JS.lex("encodeURIComponent")(str);
+        return JS.lexical("encodeURIComponent")(str);
     }
 
     public function isFinite(val:Number):Boolean
     {
-        return JS.lex("isFinite")(val);
+        return JS.lexical("isFinite")(val);
     }
 
     public function isNaN(val:Number):Boolean
     {
-        return JS.lex("isNaN")(val);
+        return JS.lexical("isNaN")(val);
  
     }
 
@@ -57,11 +57,11 @@ package
 
     public function parseFloat(str:String):Number
     {
-        return JS.lex("parseFloat")(str);
+        return JS.lexical("parseFloat")(str);
     }
 
     public function parseInt(str:String, radix:uint = 0):Number
     {
-        return JS.lex("parseInt")(str, radix);
+        return JS.lexical("parseInt")(str, radix);
     }
 }
