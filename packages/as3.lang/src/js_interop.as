@@ -1,6 +1,16 @@
 package
 {
     /**
+     * Namespace used for JavaScript conversion methods.
+     */
+    public namespace js_from = "http://whack.net/js/interop/from";
+
+    /**
+     * Namespace used for JavaScript conversion methods.
+     */
+    public namespace js_to = "http://whack.net/js/interop/to";
+
+    /**
      * Defines special compiler functions that output specialized JavaScript code
      * for interoperability between ActionScript and JavaScript.
      */
