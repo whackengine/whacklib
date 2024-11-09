@@ -2,7 +2,7 @@ package
 {
     public final class JSON
     {
-        private static const m_ns:* = JS.lexical("JSON");
+        private static const m_ns:* = js_interop.lexical("JSON");
 
         public function JSON()
         {
@@ -40,8 +40,8 @@ package
         {
             if (typeof obj == "object")
             {
-                const ctor = JS.javascriptConstructor(obj);
-                if (ctor === JS.lexical("Array"))
+                const ctor = js_interop.javascriptConstructor(obj);
+                if (ctor === js_interop.lexical("Array"))
                 {
                     const r:[*] = [];
                     for each (var v in obj)
@@ -50,7 +50,7 @@ package
                     }
                     return r;
                 }
-                else if (ctor === JS.lexical("Object"))
+                else if (ctor === js_interop.lexical("Object"))
                 {
                     const r = {};
                     for (var k in obj)
@@ -67,11 +67,11 @@ package
         {
             if (replacer is Function)
             {
-                replacer = JS.toJavascriptFunction(replacer);
+                replacer = js_interop.toJavascriptFunction(replacer);
             }
             else if (replacer is Array)
             {
-                replacer = JS.toJavascriptArray(replacer);
+                replacer = js_interop.toJavascriptArray(replacer);
             }
 
             return m_ns.stringify(as3jsontojsjson(value), replacer, space);
@@ -82,7 +82,7 @@ package
             const ctor = actionscriptConstructor(val);
             if (ctor === Array)
             {
-                const r = JS.newArray();
+                const r = js_interop.newArray();
                 for each (var v in val)
                 {
                     r.push(as3jsontojsjson(v));
@@ -91,7 +91,7 @@ package
             }
             else if (ctor === Object)
             {
-                const r = JS.newPlainObject();
+                const r = js_interop.newPlainObject();
                 for (var k in val)
                 {
                     r[k] = as3jsontojsjson(val[k]);
