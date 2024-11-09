@@ -1,7 +1,5 @@
 package
 {
-    import js_interop.lexical;
-
     public namespace AS3 = "http://whack.net/AS3/2024/builtin";
 
     [whack_external]
