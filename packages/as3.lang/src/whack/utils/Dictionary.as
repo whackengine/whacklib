@@ -13,7 +13,7 @@ package whack.utils
      * weak keys must be a managed Object and not for example a primitive.
      * An error is thrown when using a illegal key.
      */
-    [Whack::External(slots="3")]
+    [whack_external(slots="3")]
     public class Dictionary
     {
         public native function Dictionary(weakKeys:Boolean = false);

@@ -1,6 +1,6 @@
 package whack.utils
 {
-    [Whack::External]
+    [whack_external]
     public interface IDataInput
     {
         function get bytesAvailable():uint;
