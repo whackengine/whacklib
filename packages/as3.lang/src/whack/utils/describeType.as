@@ -47,6 +47,6 @@ package whack.utils
      *
      * For any parameter other than a `Class` object, `describeType()` returns `null`.
      */
-    [Whack::External]
+    [whack_external]
     public native function describeType(val:*):XML;
 }

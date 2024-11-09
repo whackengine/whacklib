@@ -4,13 +4,13 @@ package
 
     public namespace AS3 = "http://whack.net/AS3/2024/builtin";
 
-    [Whack::External]
+    [whack_external]
     public const undefined: * = void 0;
 
-    [Whack::External]
+    [whack_external]
     public const NaN: Number = 0 / 0;
 
-    [Whack::External]
+    [whack_external]
     public const Infinity: Number = 1 / 0;
 
     /**
@@ -52,7 +52,7 @@ package
  
     }
 
-    [Whack::External]
+    [whack_external]
     public native function isXMLName(str:String):Boolean;
 
     public function parseFloat(str:String):Number

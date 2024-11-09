@@ -1,6 +1,6 @@
 package
 {
-    [Whack::External(slots="4")]
+    [whack_external(slots="4")]
     public final class QName
     {
         public native function QName(arg1:*, arg2:* = undefined);

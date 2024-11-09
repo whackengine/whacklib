@@ -1,6 +1,6 @@
 package
 {
-    [Whack::External(slots="3")]
+    [whack_external(slots="3")]
     public final class Function
     {
         public native function Function();

@@ -1,6 +1,6 @@
 package
 {
-    [Whack::External(slots="3")]
+    [whack_external(slots="3")]
     public final class Number
     {
         public native function Number(arg:*);
