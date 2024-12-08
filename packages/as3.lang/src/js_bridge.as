@@ -14,9 +14,9 @@ package
      * Defines special compiler functions that output specialized JavaScript code
      * for interoperability between ActionScript and JavaScript.
      */
-    public final class js_interop
+    public final class js_bridge
     {
-        public function js_interop()
+        public function js_bridge()
         {
             throw new Error("Cannot construct the JS class.");
         }

@@ -2,7 +2,7 @@ package
 {
     public final class JSON
     {
-        private static const m_ns:* = js_interop.lexical("JSON");
+        private static const m_ns:* = js_bridge.lexical("JSON");
 
         public function JSON()
         {
@@ -40,8 +40,8 @@ package
         {
             if (typeof obj == "object")
             {
-                const ctor = js_interop.javascriptConstructor(obj);
-                if (ctor === js_interop.lexical("Array"))
+                const ctor = js_bridge.javascriptConstructor(obj);
+                if (ctor === js_bridge.lexical("Array"))
                 {
                     const r:[*] = [];
                     for each (var v in obj)
@@ -50,7 +50,7 @@ package
                     }
                     return r;
                 }
-                else if (ctor === js_interop.lexical("Object"))
+                else if (ctor === js_bridge.lexical("Object"))
                 {
                     const r = {};
                     for (var k in obj)
@@ -67,11 +67,11 @@ package
         {
             if (replacer is Function)
             {
-                replacer = js_interop.toJavascriptFunction(replacer);
+                replacer = js_bridge.toJavascriptFunction(replacer);
             }
             else if (replacer is Array)
             {
-                replacer = js_interop.toJavascriptArray(replacer);
+                replacer = js_bridge.toJavascriptArray(replacer);
             }
 
             return m_ns.stringify(as3jsontojsjson(value), replacer, space);
@@ -82,7 +82,7 @@ package
             const ctor = actionscriptConstructor(val);
             if (ctor === Array)
             {
-                const r = js_interop.newArray();
+                const r = js_bridge.newArray();
                 for each (var v in val)
                 {
                     r.push(as3jsontojsjson(v));
@@ -91,7 +91,7 @@ package
             }
             else if (ctor === Object)
             {
-                const r = js_interop.newPlainObject();
+                const r = js_bridge.newPlainObject();
                 for (var k in val)
                 {
                     r[k] = as3jsontojsjson(val[k]);

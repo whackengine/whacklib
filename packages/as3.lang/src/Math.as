@@ -2,7 +2,7 @@ package
 {
     public final class Math
     {
-        private static const m_ns:* = js_interop.lexical("Math");
+        private static const m_ns:* = js_bridge.lexical("Math");
 
         public static const E:Number = 2.71828182845905;
         public static const LN10:Number = 2.302585092994046;
