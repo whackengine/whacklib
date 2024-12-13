@@ -4,10 +4,7 @@ version = "1.0.0"
 authors = ["Matheus Dias de Souza <hydroperfox@gmail.com>"]
 license = "Apache-2.0"
 description = ""
-
-[[source]]
-path = "src"
-include = true
+source-path = ["src"]
 
 [dependencies]
 "as3.lang" = { path = "../as3.lang", version = "1" }
