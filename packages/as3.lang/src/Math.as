@@ -1,6 +1,6 @@
 package
 {
-    public final class Math
+    public static final class Math
     {
         private static const m_ns:* = js_bridge.lexical("Math");
 
@@ -13,11 +13,6 @@ package
         public static const PI:Number = 3.141592653589793;
         public static const SQRT1_2:Number = 0.7071067811865476;
         public static const SQRT2:Number = 1.4142135623730951;
-
-        public function Math()
-        {
-            throw new Error("Cannot construct a Math object.");
-        }
 
         public static function abs(val:Number):Number
         {
@@ -67,6 +62,11 @@ package
         public static function ceil(val:Number):Number
         {
             return m_ns.ceil(val);
+        }
+
+        public static function clamp(value:Number, start:Number, end:Number):Number
+        {
+            return Math.min(Math.max(value, start), end);
         }
 
         public static function cos(angleRadians:Number):Number

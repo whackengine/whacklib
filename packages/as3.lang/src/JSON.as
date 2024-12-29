@@ -1,13 +1,8 @@
 package
 {
-    public final class JSON
+    public static final class JSON
     {
         private static const m_ns:* = js_bridge.lexical("JSON");
-
-        public function JSON()
-        {
-            throw new Error("Cannot construct a JSON object.");
-        }
 
         /**
          * Parses a JSON formatted string.
