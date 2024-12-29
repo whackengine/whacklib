@@ -44,6 +44,9 @@ package
 
         public static native function newArray():*;
 
+        /**
+         * Alternative to getting the `constructor` property in ActionScript 3.
+         */
         public static native function actionscriptConstructor(obj):*;
 
         public static native function javascriptConstructor(obj):*;

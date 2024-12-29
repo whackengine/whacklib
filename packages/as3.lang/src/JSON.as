@@ -74,7 +74,7 @@ package
 
         private static function as3jsontojsjson(val:*):*
         {
-            const ctor = actionscriptConstructor(val);
+            const ctor = js_bridge.actionscriptConstructor(val);
             if (ctor === Array)
             {
                 const r = js_bridge.newArray();
