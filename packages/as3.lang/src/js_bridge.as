@@ -3,12 +3,12 @@ package
     /**
      * Namespace used for JavaScript conversion methods.
      */
-    public namespace js_from = "http://whack.net/js/interop/from";
+    public namespace js_from = "http://whack.net/js/bridge/from";
 
     /**
      * Namespace used for JavaScript conversion methods.
      */
-    public namespace js_to = "http://whack.net/js/interop/to";
+    public namespace js_to = "http://whack.net/js/bridge/to";
 
     /**
      * Defines special compiler functions that output specialized JavaScript code
