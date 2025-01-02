@@ -1,26 +1,21 @@
 package
 {
     /**
-     * Namespace used for JavaScript conversion methods.
+     * Conventional namespace used for JavaScript conversion methods.
      */
-    public namespace js_from = "http://whack.net/js/bridge/from";
+    public namespace JSBridgeFrom = "http://whack.net/js/bridge/from";
 
     /**
-     * Namespace used for JavaScript conversion methods.
+     * Conventional namespace used for JavaScript conversion methods.
      */
-    public namespace js_to = "http://whack.net/js/bridge/to";
+    public namespace JSBridgeTo = "http://whack.net/js/bridge/to";
 
     /**
      * Defines special compiler functions that output specialized JavaScript code
      * for interoperability between ActionScript and JavaScript.
      */
-    public final class js_bridge
+    public static class JSBridge
     {
-        public function js_bridge()
-        {
-            throw new Error("Cannot construct the JS class.");
-        }
-
         /**
          * Resolves a lexical reference.
          */

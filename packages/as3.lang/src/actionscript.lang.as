@@ -16,37 +16,37 @@ package
      */
     public function trace(...values : [*]):void
     {
-        js_bridge.lexical("console").log(values.join("  "));
+        JSBridge.lexical("console").log(values.join("  "));
     }
 
     public function decodeURI(str:String):String
     {
-        return js_bridge.lexical("decodeURI")(str);
+        return JSBridge.lexical("decodeURI")(str);
     }
 
     public function decodeURIComponent(str:String):String
     {
-        return js_bridge.lexical("decodeURIComponent")(str);
+        return JSBridge.lexical("decodeURIComponent")(str);
     }
 
     public function encodeURI(str:String):String
     {
-        return js_bridge.lexical("encodeURI")(str);
+        return JSBridge.lexical("encodeURI")(str);
     }
 
     public function encodeURIComponent(str:String):String
     {
-        return js_bridge.lexical("encodeURIComponent")(str);
+        return JSBridge.lexical("encodeURIComponent")(str);
     }
 
     public function isFinite(val:Number):Boolean
     {
-        return js_bridge.lexical("isFinite")(val);
+        return JSBridge.lexical("isFinite")(val);
     }
 
     public function isNaN(val:Number):Boolean
     {
-        return js_bridge.lexical("isNaN")(val);
+        return JSBridge.lexical("isNaN")(val);
  
     }
 
@@ -55,11 +55,11 @@ package
 
     public function parseFloat(str:String):Number
     {
-        return js_bridge.lexical("parseFloat")(str);
+        return JSBridge.lexical("parseFloat")(str);
     }
 
     public function parseInt(str:String, radix:uint = 0):Number
     {
-        return js_bridge.lexical("parseInt")(str, radix);
+        return JSBridge.lexical("parseInt")(str, radix);
     }
 }
