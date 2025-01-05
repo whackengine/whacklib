@@ -6,24 +6,26 @@
 
 (Inside whack.core)
 
-Includes at least the `Application` and `UIComponent` classes.
+### whack.components.\*
+
+(Inside whack.core)
+
+Includes the `UIComponent` and `Application` classes using specific behavior for client side and server side.
 
 Mechanisms:
 
 - Register shortcut actions (keyboard and gamepad) in an application, including global shortcut events (such as update, button press, button release) and retrieving button pressure.
 - Internationalization in an application, including global language events.
 
-### whack.controls.\*
+### whack.components.richText
+
+Defines components used by HTML and XHTML text.
+
+### whack.layout.\*
 
 (Inside whack.core)
 
-For the `new UIComponent()` constructor, throw an `Error` for server side (the Node.js engine).
-
-## whack.layout.\*
-
-(Inside whack.core)
-
-## whack.skins.\*
+### whack.skins.\*
 
 (Inside whack.skins)
 
