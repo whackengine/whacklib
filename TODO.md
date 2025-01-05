@@ -17,9 +17,9 @@ Mechanisms:
 - Register shortcut actions (keyboard and gamepad) in an application, including global shortcut events (such as update, button press, button release) and retrieving button pressure.
 - Internationalization in an application, including global language events.
 
-### whack.components.richText
+### whack.components.tags
 
-Defines components used by HTML and XHTML text.
+Defines components used by HTML tags.
 
 ### whack.layout.\*
 
