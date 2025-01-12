@@ -16,6 +16,14 @@ package
      */
     public function trace(...values : [*]):void
     {
+        values = values.map(function(val:*):*
+        {
+            if (val is Array || JSBridge.actionscriptConstructor(val) === Object)
+            {
+                return JSBridge.lexical("JSON").parse(JSON.stringify(val));
+            }
+            return val;
+        });
         JSBridge.lexical("console").log(values.join("  "));
     }
 
