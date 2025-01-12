@@ -12,6 +12,8 @@ package whack.utils
      * When the Dictionary is created through weak keys enabled,
      * weak keys must be a managed Object and not for example a primitive.
      * An error is thrown when using a illegal key.
+     *
+     * In addition, a Dictionary with weak keys enabled is not iterable.
      */
     [whack_external(slots="3")]
     public class Dictionary
