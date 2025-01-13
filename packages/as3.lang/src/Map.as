@@ -26,15 +26,23 @@ package
 
         public native function call(key:*, ...args : [*]):*;
 
+        /**
+         * Determines whether or not the `Map` includes a key.
+         * Equivalent to the `hasOwnProperty()` method.
+         */
         public native function has(key:*):Boolean;
 
-        public native function hasOwnProperty(key:*, ...args : [*]):*;
+        /**
+         * Determines whether or not the `Map` includes a key.
+         * Equivalent to the `has()` method.
+         */
+        public native function hasOwnProperty(key:*):Boolean;
 
-        public native function entries() : [[*, *]];
+        public native function entries() : [[K, V]];
 
-        public native function keys() : [*];
+        public native function keys() : [K];
 
-        public native function values() : [*];
+        public native function values() : [V];
 
         public native function clear():void;
     }

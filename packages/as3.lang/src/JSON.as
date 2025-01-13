@@ -62,11 +62,11 @@ package
         {
             if (replacer is Function)
             {
-                replacer = JSBridgeToJavascriptFunction(replacer);
+                replacer = JSBridge.toJavascriptFunction(replacer);
             }
-            else if (replacer is Array)
+            else if (isArray(replacer))
             {
-                replacer = JSBridgeToJavascriptArray(replacer);
+                replacer = JSBridge.toJavascriptArray(replacer);
             }
 
             return m_ns.stringify(as3jsontojsjson(value), replacer, space);

@@ -27,7 +27,7 @@ package
 
         AS3 native function localeCompare(other:String, ...values : [String]):int;
 
-        AS3 native function match(pattern:*):Array;
+        AS3 native function match(pattern:*):Array.<*>;
 
         AS3 native function replace(pattern:*, repl:Object):String;
 

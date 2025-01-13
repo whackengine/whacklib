@@ -18,7 +18,7 @@ package
 
         public native function get source():String;
 
-        public native function exec(str:String):Array;
+        public native function exec(str:String):[*];
 
         public native function test(str:String):Boolean;
     }

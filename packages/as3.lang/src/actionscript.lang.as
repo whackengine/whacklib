@@ -18,7 +18,7 @@ package
     {
         values = values.map(function(val:*):*
         {
-            if (val is Array || JSBridge.actionscriptConstructor(val) === Object)
+            if (isArray(val) || JSBridge.actionscriptConstructor(val) === Object)
             {
                 return JSBridge.lexical("JSON").parse(JSON.stringify(val));
             }
@@ -55,8 +55,15 @@ package
     public function isNaN(val:Number):Boolean
     {
         return JSBridge.lexical("isNaN")(val);
- 
     }
+
+    /**
+     * Determines whether a given argument is an `Array` object.
+     * This function is preferred over the expression `arg is Array`
+     * since the latter will test for `Array.<*>` in specific.
+     */
+    [whack_external]
+    public native function isArray(arg:*):Boolean;
 
     [whack_external]
     public native function isXMLName(str:String):Boolean;
