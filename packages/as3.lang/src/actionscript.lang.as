@@ -65,6 +65,14 @@ package
     [whack_external]
     public native function isArray(arg:*):Boolean;
 
+    /**
+     * Determines whether a given argument is a `Vector` object.
+     * This function is preferred over the expression `arg is Vector`
+     * since the latter will test for `Vector.<*>` in specific.
+     */
+    [whack_external]
+    public native function isVector(arg:*):Boolean;
+
     [whack_external]
     public native function isXMLName(str:String):Boolean;
 
