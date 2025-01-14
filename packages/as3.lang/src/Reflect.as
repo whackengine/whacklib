@@ -77,6 +77,18 @@ package
         public static native function variables(type:Class):[Object];
 
         /**
+         * Returns the element types of a given tuple type, or returns `null`
+         * if the given type is not a tuple.
+         */
+        public static native function tupleTypeElements(type:Class):[Class];
+
+        /**
+         * Returns the super type of a given type. If an interface type is given,
+         * returns `null`.
+         */
+        public static native function superType(type:Class):Class;
+
+        /**
          * Indicates whether a type is an instantiation of the `Array.<T>` class.
          */
         public static native function isArrayType(type:Class):Boolean;
@@ -85,6 +97,11 @@ package
          * Indicates whether a type is an instantiation of the `Map.<K, V>` class.
          */
         public static native function isMapType(type:Class):Boolean;
+
+        /**
+         * Indicates whether a type is a tuple.
+         */
+        public static native function isTupleType(type:Class):Boolean;
 
         /**
          * Indicates whether a type is an instantiation of the `Vector.<T>` class.
