@@ -3,7 +3,7 @@ name = "whack.base"
 version = "1.0.0"
 authors = ["Matheus Dias de Souza <hydroperfox@gmail.com>"]
 license = "Apache-2.0"
-description = ""
+description = "The base library of the Whack engine."
 source-path = ["src"]
 
 [dependencies]
