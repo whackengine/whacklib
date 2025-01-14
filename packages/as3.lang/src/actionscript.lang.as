@@ -66,6 +66,14 @@ package
     public native function isArray(arg:*):Boolean;
 
     /**
+     * Determines whether a given argument is a `Map` object.
+     * This function is preferred over the expression `arg is Map`
+     * since the latter will test for `Map.<*>` in specific.
+     */
+    [whack_external]
+    public native function isMap(arg:*):Boolean;
+
+    /**
      * Determines whether a given argument is a `Vector` object.
      * This function is preferred over the expression `arg is Vector`
      * since the latter will test for `Vector.<*>` in specific.
