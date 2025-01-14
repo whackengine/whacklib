@@ -31,6 +31,42 @@ package
             return jsjsontoas3json(r);
         }
 
+        /**
+         * Parses a JSON formatted string as a given type.
+         */
+        public static function parseAs(text:String, type:Class):Object
+        {
+            return mapParsedIntoType(parse(text), type);
+        }
+
+        private static function mapParsedIntoType(val:*, type:Class):Object
+        {
+            if (Reflect.isArrayType(type))
+            {
+                //
+            }
+            else if (Reflect.isVectorType(type))
+            {
+                //
+            }
+            else if (Reflect.isMapType(type))
+            {
+                //
+            }
+            else if (Reflect.isTupleType(type))
+            {
+                //
+            }
+            else if (!type)
+            {
+                //
+            }
+            else
+            {
+                //
+            }
+        }
+
         private static function jsjsontoas3json(obj:*):Object
         {
             if (typeof obj == "object")

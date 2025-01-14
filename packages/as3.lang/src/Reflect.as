@@ -3,7 +3,8 @@ package
     import whack.utils.describeType;
 
     /**
-     * Implements type reflection functions that allows inspecting types.
+     * Implements type reflection functions that allows inspecting as well as
+     * instantiating types.
      *
      * @see whack.utils.describeType
      */
@@ -87,6 +88,30 @@ package
          * returns `null`.
          */
         public static native function superType(type:Class):Class;
+
+        /**
+         * Instantiates the `Array` class with a given element type, returning an instantiated
+         * type.
+         */
+        public static native function arrayOf(elementType:Class):Class;
+
+        /**
+         * Instantiates the `Vector` class with a given element type, returning an instantiated
+         * type.
+         */
+        public static native function vectorOf(elementType:Class):Class;
+
+        /**
+         * Instantiates the `Map` class with a given element type, returning an instantiated
+         * type.
+         */
+        public static native function mapOf(keyType:Class, valueType:Class):Class;
+
+        /**
+         * Creates a tuple of the specified element types, initialized with the
+         * given elements.
+         */
+        public static native function constructTuple(elementTypes:[Class], elements:[*]):Class;
 
         /**
          * Indicates whether a type is an instantiation of the `Array.<T>` class.
