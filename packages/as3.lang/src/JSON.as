@@ -43,7 +43,12 @@ package
         {
             if (Reflect.isArrayType(type))
             {
+                const [elementType] = Reflect.typeArguments(type);
+                const r = new type();
+
                 //
+
+                return r;
             }
             else if (Reflect.isVectorType(type))
             {
@@ -59,7 +64,7 @@ package
             }
             else if (!type)
             {
-                //
+                return val;
             }
             else
             {
