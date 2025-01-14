@@ -1,5 +1,5 @@
 [workspace]
 members = [
     "packages/as3.lang",
-    "packages/whack.core",
+    "packages/whack.base",
 ]

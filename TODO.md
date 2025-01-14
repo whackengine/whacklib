@@ -4,11 +4,11 @@
 
 ### whack.core.\*
 
-(Inside whack.core)
+(Inside whack.base)
 
 ### whack.components.\*
 
-(Inside whack.core)
+(Inside whack.base)
 
 Includes the `UIComponent` and `Application` classes using specific behavior for client side and server side.
 
@@ -23,17 +23,21 @@ Defines components used by HTML tags.
 
 ### whack.layout.\*
 
-(Inside whack.core)
+(Inside whack.base)
 
 ### whack.skins.\*
 
-(Inside whack.skins)
+(Inside whack.base)
 
 ### whack.gfx.\*
 
-(Outside whack.core)
+(Outside whack.base)
 
 whack.gfx.\* is implemented in an optional package that the user may depend in. It includes:
 
 - The `Canvas` user interface component.
-- The `DisplayObject` hierarchy of classes (not the same concept as Flash Display List).
+- The `DisplayObject` hierarchy of classes (not the same concept as Flash Display List, but very close).
+  - `Bitmap`
+  - `Shape`
+  - `TextArea`
+  - `MovieClip`

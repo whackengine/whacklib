@@ -1,5 +1,5 @@
 [package]
-name = "whack.core"
+name = "whack.base"
 version = "1.0.0"
 authors = ["Matheus Dias de Souza <hydroperfox@gmail.com>"]
 license = "Apache-2.0"
