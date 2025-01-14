@@ -27,9 +27,9 @@ package
          * - `Reflect.isMapType()`
          * - `Reflect.isVectorType()`
          *
-         * @see #isArrayType
-         * @see #isMapType
-         * @see #isVectorType
+         * @see Reflect.isArrayType
+         * @see Reflect.isMapType
+         * @see Reflect.isVectorType
          */
         public static native function typeArguments(classObject:Class):[Class];
 
