@@ -8,7 +8,7 @@ package
      *
      * @see whack.utils.describeType
      */
-    [whack_external(slots="2")]
+    [whack_external(slots="2", local="thereflectclass")]
     public static class Reflect
     {
         /**
@@ -88,6 +88,12 @@ package
          * returns `null`.
          */
         public static native function superType(type:Class):Class;
+
+        /**
+         * For any class other than `Object`, returns a list of its subclasses.
+         * For `Object` and other non class types returns an empty list.
+         */
+        public static native function subclasses(type:Class):[Class];
 
         /**
          * Instantiates the `Array` class with a given element type, returning an instantiated

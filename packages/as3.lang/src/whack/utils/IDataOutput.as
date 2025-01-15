@@ -1,6 +1,6 @@
 package whack.utils
 {
-    [whack_external]
+    [whack_external(local="idataoutputitrfc")]
     public interface IDataOutput
     {
         /**

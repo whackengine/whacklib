@@ -1,6 +1,6 @@
 package
 {
-    [whack_external(slots="3")]
+    [whack_external(slots="3", local="xmllistclass")]
     public final class XMLList
     {
         public native function XMLList(val:*);

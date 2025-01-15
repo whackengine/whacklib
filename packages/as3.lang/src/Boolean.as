@@ -1,6 +1,6 @@
 package
 {
-    [whack_external(slots="3")]
+    [whack_external(slots="3", local="booleanclass")]
     public final class Boolean
     {
         public native function Boolean(arg:*);

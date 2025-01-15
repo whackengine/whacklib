@@ -15,7 +15,7 @@ package
      *
      * In addition, a `Map` with weak keys enabled is not iterable.
      */
-    [whack_external(slots="3")]
+    [whack_external(slots="3", local="mapclass")]
     public final class Map.<K, V>
     {
         public native function Map(weakKeys:Boolean = false);

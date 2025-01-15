@@ -1,6 +1,6 @@
 package
 {
-    [whack_external(slots="2")]
+    [whack_external(slots="2", local="floatclass")]
     public final class float
     {
         public native function float(arg:*);

@@ -1,6 +1,6 @@
 package
 {
-    [whack_external(slots="4")]
+    [whack_external(slots="4", local="namespaceclass")]
     public final class Namespace
     {
         public native function Namespace(arg1:*, arg2:* = undefined);

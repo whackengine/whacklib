@@ -1,6 +1,6 @@
 package
 {
-    [whack_external(slots="2")]
+    [whack_external(slots="2", local="intclass")]
     public final class int
     {
         public native function int(arg:*);

@@ -14,7 +14,7 @@ package
      * new <T> [v1, vN]
      * ```
      */
-    [whack_external(slots="4")]
+    [whack_external(slots="4", local="vectorclass")]
     public final class Vector.<T>
     {
         public native function Vector(length:uint = 0, fixed:Boolean = false);

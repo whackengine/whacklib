@@ -1,6 +1,6 @@
 package
 {
-    [whack_external(slots="3")]
+    [whack_external(slots="3", local="functionclass")]
     public final class Function
     {
         public native function Function();
