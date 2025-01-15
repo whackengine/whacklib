@@ -46,8 +46,17 @@ package
                 const [elementType] = Reflect.typeArguments(type);
                 const r = new type();
 
-                //
-                throw new Error("Not implemented.");
+                if (isArray(val))
+                {
+                    for each (const el in val)
+                    {
+                        r.push(mapParsedIntoType(el, elementType));
+                    }
+                }
+                else
+                {
+                    throw new TypeError("Expected array, got " + (typeof val) + ".");
+                }
 
                 return r;
             }
