@@ -41,39 +41,119 @@ package
 
         private static function mapParsedIntoType(val:*, type:Class):Object
         {
-            if (Reflect.isArrayType(type))
+            if (type == String)
             {
+                if (typeof val != "string")
+                {
+                    throw new TypeError("Expected string, got " + (typeof val) + ".");
+                }
+                return val;
+            }
+            else if (type == Number)
+            {
+                if (typeof val != "number")
+                {
+                    throw new TypeError("Expected number, got " + (typeof val) + ".");
+                }
+                return val;
+            }
+            else if (type == Boolean)
+            {
+                if (typeof val != "boolean")
+                {
+                    throw new TypeError("Expected boolean, got " + (typeof val) + ".");
+                }
+                return val;
+            }
+            else if (type == int)
+            {
+                if (typeof val != "number")
+                {
+                    throw new TypeError("Expected int, got " + (typeof val) + ".");
+                }
+                return int(val);
+            }
+            else if (type == uint)
+            {
+                if (typeof val != "number")
+                {
+                    throw new TypeError("Expected uint, got " + (typeof val) + ".");
+                }
+                return uint(val);
+            }
+            else if (type == float)
+            {
+                if (typeof val != "number")
+                {
+                    throw new TypeError("Expected float, got " + (typeof val) + ".");
+                }
+                return float(val);
+            }
+            else if (Reflect.isArrayType(type) || Reflect.isVectorType(type))
+            {
+                if (!isArray(val))
+                {
+                    throw new TypeError("Expected array, got " + (typeof val) + ".");
+                }
+                
                 const [elementType] = Reflect.typeArguments(type);
                 const r = new type();
 
-                if (isArray(val))
+                for each (const el in val)
                 {
-                    for each (const el in val)
-                    {
-                        r.push(mapParsedIntoType(el, elementType));
-                    }
-                }
-                else
-                {
-                    throw new TypeError("Expected array, got " + (typeof val) + ".");
+                    r.push(mapParsedIntoType(el, elementType));
                 }
 
                 return r;
             }
-            else if (Reflect.isVectorType(type))
-            {
-                //
-                throw new Error("Not implemented.");
-            }
             else if (Reflect.isMapType(type))
             {
-                //
-                throw new Error("Not implemented.");
+                const [keyType, valueType] = Reflect.typeArguments(type);
+
+                if ([null, Object, String].indexOf(keyType) == -1)
+                {
+                    throw new TypeError("Map key type must be *, Object or String.");
+                }
+
+                if (!(typeof val == "object" && val.constructor === Object))
+                {
+                    throw new TypeError("Expected plain object, got " + (typeof val));
+                }
+
+                const r = new type();
+
+                for (var k in val)
+                {
+                    r[k] = mapParsedIntoType(val[k], valueType);
+                }
+
+                return r;
             }
             else if (Reflect.isTupleType(type))
             {
-                //
-                throw new Error("Not implemented.");
+                const elementTypes = Reflect.tupleTypeElements(type);
+
+                if (!isArray(val))
+                {
+                    throw new TypeError("Expected array, got " + (typeof val) + ".");
+                }
+
+                const elements = [];
+                const len = elementTypes.length;
+
+                if (len != val.length)
+                {
+                    throw new TypeError("Wrong tuple length: expected " + len + ", got " + val.length + ".");
+                }
+
+                for (var i:int = 0; i < len; i++)
+                {
+                    const elem = val[i];
+                    const elemType = elementTypes[i];
+                    elements.push(mapParsedIntoType(el, elemType));
+                }
+
+                return Reflect.constructTuple(elementTypes, elements);
             }
             else if (!type)
             {

@@ -23,6 +23,14 @@ package
         public native function set errors(val:Object):void;
     }
 
+    public dynamic class AssertionError extends Error
+    {
+        public function AssertionError(message:String = "")
+        {
+            super(message);
+        }
+    }
+
     [whack_external(slots="3", local="argumenterrorclass")]
     public dynamic class ArgumentError extends Error
     {
