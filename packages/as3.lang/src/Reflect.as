@@ -120,6 +120,12 @@ package
         public static native function constructTuple(elementTypes:[Class], elements:[*]):Class;
 
         /**
+         * Returns the local name of a type; that is, a name that is not
+         * fully qualified.
+         */
+        public static native function typeLocalName(type:Class):String;
+
+        /**
          * Indicates whether a type is an instantiation of the `Array.<T>` class.
          */
         public static native function isArrayType(type:Class):Boolean;
