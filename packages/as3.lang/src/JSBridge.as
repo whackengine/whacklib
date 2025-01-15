@@ -1,14 +1,14 @@
 package
 {
     /**
-     * Conventional namespace used for JavaScript conversion methods.
+     * Conventional namespace used for JavaScript interoperability conversion methods.
      */
-    public namespace JSBridgeFrom = "http://whack.net/js/bridge/from";
+    public namespace jsbridge_from = "http://whack.net/js/bridge/from";
 
     /**
-     * Conventional namespace used for JavaScript conversion methods.
+     * Conventional namespace used for JavaScript interoperability conversion methods.
      */
-    public namespace JSBridgeTo = "http://whack.net/js/bridge/to";
+    public namespace jsbridge_to = "http://whack.net/js/bridge/to";
 
     /**
      * Defines special compiler functions that output specialized JavaScript code

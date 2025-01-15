@@ -7,19 +7,19 @@ package whack.utils
 
         public static native function zeroes(length:uint):ByteArray;
 
-        JSBridgeFrom static native function arrayBuffer(arg:*):ByteArray;
+        jsbridge_from static native function arrayBuffer(arg:*):ByteArray;
 
-        JSBridgeFrom static native function byteArray(arg:*):ByteArray;
+        jsbridge_from static native function byteArray(arg:*):ByteArray;
 
         /**
          * Returns the underlying `ArrayBuffer` JavaScript object used by the byte array.
          */
-        JSBridgeTo native function arrayBuffer():*;
+        jsbridge_to native function arrayBuffer():*;
 
         /**
          * Converts the byte array into a Node.js buffer.
          */
-        JSBridgeTo native function buffer():*;
+        jsbridge_to native function buffer():*;
 
         public native function clone():ByteArray;
 
