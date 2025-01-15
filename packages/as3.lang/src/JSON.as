@@ -47,20 +47,24 @@ package
                 const r = new type();
 
                 //
+                throw new Error("Not implemented.");
 
                 return r;
             }
             else if (Reflect.isVectorType(type))
             {
                 //
+                throw new Error("Not implemented.");
             }
             else if (Reflect.isMapType(type))
             {
                 //
+                throw new Error("Not implemented.");
             }
             else if (Reflect.isTupleType(type))
             {
                 //
+                throw new Error("Not implemented.");
             }
             else if (!type)
             {
@@ -69,6 +73,7 @@ package
             else
             {
                 //
+                throw new Error("Not implemented.");
             }
         }
 
