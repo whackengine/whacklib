@@ -179,14 +179,6 @@ package
                             }
                             return r;
                         }
-                        else if (k == "format")
-                        {
-                            if (typeof val != "string)
-                            {
-                                throw new TypeError("Expected string, got " + (typeof val) + ".");
-                            }
-                            return mapFormattedStringIntoType(val, type, v);
-                        }
                         else if (k == "union")
                         {
                             if (v == "true)
@@ -195,6 +187,12 @@ package
                             }
                         }
                     }
+                }
+
+                // serialization_capabilities::fromJSON()
+                if (Reflect.hasMethod(type, new QName("http://whack.net/2024/actionscript/serialization/capabilities", "fromJSON")))
+                {
+                    return type.serialization_capabilities::["fromJSON"](val);
                 }
 
                 if (typeof val != "object")
@@ -279,58 +277,6 @@ package
                     }
                 }
                 r[variable.name] = mapParsedIntoType(obj[jsonField], variable.type);
-            }
-            return r;
-        }
-
-        private static function mapFormattedStringIntoType(formattedStr:String, type:Class, format:String):Object
-        {
-            // Cast each property interpolation to the property type
-            const r = new type();
-            var i:int = 0
-            ,   fl:int = format.length
-            ,   formattedStrIndex:int = 0
-            ,   formattedStrLen:int = formattedStr.length;
-            while (i < fl)
-            {
-                var ch = format.charCodeAt(i++);
-                if (ch == 0x7B)
-                {
-                    var intpStart = i;
-                    var rbrace = false;
-                    while (i < fl)
-                    {
-                        ch = format.charCodeAt(i++);
-                        if (ch == 0x7D)
-                        {
-                            rbrace = true;
-                            break;
-                        }
-                    }
-                    const propertyName = format.slice(intpStart, i - (rbrace ? 1 : 0));
-                    var propertyValue:* = "";
-                    if (i < fl)
-                    {
-                        const nextFormatChar = format.charAt(i);
-                        const formattedStrNextIndex = formattedStr.indexOf(nextFormatChar, formattedStrIndex);
-                        propertyValue = formattedStrNextIndex == -1 ? "" : formattedStr.slice(formattedStrIndex, formattedStrNextIndex);
-                    }
-                    else
-                    {
-                        propertyValue = formattedStr.slice(formattedStrIndex);
-                    }
-
-                    const propertyType = Reflect.propertyType(type, propertyName);
-                    if (propertyType !== null)
-                    {
-                        propertyValue = propertyType(propertyValue);
-                    }
-                    r[propertyName] = propertyValue;
-                }
-                else if (formattedStrIndex < formattedStrLen)
-                {
-                    formattedStrIndex++;
-                }
             }
             return r;
         }

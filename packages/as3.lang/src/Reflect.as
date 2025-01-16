@@ -151,7 +151,7 @@ package
          *
          * @param propertyName A string or a `QName` object containing an user namespace URI.
          */
-        public static native function objectHasMethod(object:Object, propertyName:*):Boolean;
+        public static native function hasMethod(object:Object, propertyName:*):Boolean;
 
         /**
          * Creates a tuple of the specified element types, initialized with the
