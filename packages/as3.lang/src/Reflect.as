@@ -75,6 +75,8 @@ package
         /**
          * Returns description of public or URI-namespace instance variables of a class.
          *
+         * > Note: this method does not return descriptions of instance variables from base classes.
+         *
          * This method returns arrays of the following format:
          *
          * ```as3
@@ -95,6 +97,16 @@ package
          * ```
          */
         public static native function variables(type:Class):[Object];
+
+        /**
+         * Returns the type of an instance property from the specified class object, or `null`
+         * if it is the `*` type or if the property is not defined.
+         *
+         * > Note: this method does not look for instance properties in base classes.
+         *
+         * @param propertyName A string or a `QName` object containing an user namespace URI and a local name.
+         */
+        public static native function propertyType(type:Class, propertyName:*):Class;
 
         /**
          * Returns the element types of a given tuple type, or returns `null`
