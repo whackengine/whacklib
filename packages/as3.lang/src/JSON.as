@@ -507,7 +507,7 @@ package
             return m_ns.stringify(as3jsontojsjson(value), replacer, space);
         }
 
-        private static function typedSerializableObjectToPlain(val:*):Object
+        private static function serializableToPlain(val:*):Object
         {
             //
 
