@@ -417,7 +417,7 @@ package
                     {
                         continue;
                     }
-                    var isObjectFound = false, fieldName:String = null;
+                    var isObjectFound = false;
                     for each (const [k, v] in serialization.entries)
                     {
                         if (k == "object")
@@ -427,12 +427,8 @@ package
                                 isObjectFound = true;
                             }
                         }
-                        else if (k == "field")
-                        {
-                            fieldName = v;
-                        }
                     }
-                    if (isObjectFound && fieldName != null)
+                    if (isObjectFound)
                     {
                         return mapParsedIntoSpecificClass(val, subclass);
                     }
@@ -475,7 +471,7 @@ package
                         return r;
                     }
                 }
-                throw new Error("Could not deserialize string into union.");
+                throw new Error("Could not deserialize number into union.");
             }
             else if (typeof val == "boolean")
             {
@@ -550,7 +546,7 @@ package
             const ctor = Reflect.constructorOf(value);
             if (typeof value == "object" && ctor !== Object)
             {
-                value = typedObjectToPlain(value, ctor);
+                value = typedSerializableObjectToPlain(value, ctor);
             }
 
             if (replacer is Function)
@@ -565,7 +561,7 @@ package
             return m_ns.stringify(as3jsontojsjson(value), replacer, space);
         }
 
-        private static function typedObjectToPlain(val:*, type:Class):Object
+        private static function typedSerializableObjectToPlain(val:*):Object
         {
             //
 
