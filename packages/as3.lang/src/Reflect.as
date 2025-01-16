@@ -160,6 +160,14 @@ package
         public static native function constructTuple(elementTypes:[Class], elements:[*]):Class;
 
         /**
+         * Alternative to getting the `constructor` property of an object in ActionScript 3.
+         *
+         * @return The constructor reflected as a `Class` object, or `null` if it is an
+         * undefined or null value.
+         */
+        public static native function constructorOf(object:*):Class;
+
+        /**
          * Returns the fully qualified name of a type.
          */
         public static native function typeFullName(type:Class):String;

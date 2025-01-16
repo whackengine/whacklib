@@ -35,15 +35,20 @@ package
 
         public static native function isActionscriptObject(obj:*):*;
 
+        /**
+         * Constructs a JavaScript plain object.
+         */
         public static native function newPlainObject():*;
 
+        /**
+         * Constructs a JavaScript array.
+         */
         public static native function newArray():*;
 
         /**
-         * Alternative to getting the `constructor` property in ActionScript 3.
+         * Returns the `constructor` property of a JavaScript object, or null
+         * if the given value is undefined or null.
          */
-        public static native function actionscriptConstructor(obj):*;
-
-        public static native function javascriptConstructor(obj):*;
+        public static native function constructorOf(obj:*):*;
     }
 }

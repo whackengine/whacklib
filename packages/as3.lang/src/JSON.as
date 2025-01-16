@@ -520,7 +520,7 @@ package
         {
             if (typeof obj == "object")
             {
-                const ctor = JSBridge.javascriptConstructor(obj);
+                const ctor = JSBridge.constructorOf(obj);
                 if (ctor === JSBridge.lexical("Array"))
                 {
                     const r:[*] = [];
@@ -545,6 +545,14 @@ package
 
         public static function stringify(value:Object, replacer:* = null, space:* = null):String
         {
+            // If the value to serialize is an user class, convert it to JSON before
+            // serializing it.
+            const ctor = Reflect.constructorOf(value);
+            if (typeof value == "object" && ctor !== Object)
+            {
+                value = typedObjectToPlain(value, ctor);
+            }
+
             if (replacer is Function)
             {
                 replacer = JSBridge.toJavascriptFunction(replacer);
@@ -557,10 +565,16 @@ package
             return m_ns.stringify(as3jsontojsjson(value), replacer, space);
         }
 
+        private static function typedObjectToPlain(val:*, type:Class):Object
+        {
+            //
+
+            throw new TypeError("Not implemented.");
+        }
+
         private static function as3jsontojsjson(val:*):*
         {
-            const ctor = JSBridge.actionscriptConstructor(val);
-            if (ctor === Array)
+            if (isArray(val))
             {
                 const r = JSBridge.newArray();
                 for each (var v in val)
@@ -569,7 +583,7 @@ package
                 }
                 return r;
             }
-            else if (ctor === Object)
+            else if (Reflect.constructorOf(val) === Object)
             {
                 const r = JSBridge.newPlainObject();
                 for (var k in val)
