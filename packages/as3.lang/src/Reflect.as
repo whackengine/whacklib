@@ -145,6 +145,15 @@ package
         public static native function mapOf(keyType:Class, valueType:Class):Class;
 
         /**
+         * Determines whether an object has a method of the specified name.
+         * The difference to using the `propertyName in object && object[propertyName] is Function` is
+         * that this reflection method accepts a URI qualified name.
+         *
+         * @param propertyName A string or a `QName` object containing an user namespace URI.
+         */
+        public static native function objectHasMethod(object:Object, propertyName:*):Boolean;
+
+        /**
          * Creates a tuple of the specified element types, initialized with the
          * given elements.
          */
