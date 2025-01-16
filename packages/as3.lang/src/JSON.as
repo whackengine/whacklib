@@ -189,8 +189,10 @@ package
                         }
                         else if (k == "union")
                         {
-                            //
-                            throw new Error("Not implemented.");
+                            if (v == "true)
+                            {
+                                return mapUnionIntoType(val, type);
+                            }
                         }
                     }
                 }
@@ -331,6 +333,187 @@ package
                 }
             }
             return r;
+        }
+
+        private static function mapUnionIntoType(val:*, type:Class):Object
+        {
+            if (typeof val == "string")
+            {
+                for each (var subclass in Reflect.subclasses(type))
+                {
+                    var serialization = Reflect.lookupMetadata(subclass, "Serialization");
+                    if (serialization === null)
+                    {
+                        continue;
+                    }
+                    var isStringFound = false, fieldName:String = null;
+                    for each (const [k, v] in serialization.entries)
+                    {
+                        if (k == "string")
+                        {
+                            if (v == "true")
+                            {
+                                isStringFound = true;
+                            }
+                        }
+                        else if (k == "field")
+                        {
+                            fieldName = v;
+                        }
+                    }
+                    if (isStringFound && fieldName != null)
+                    {
+                        const r = new subclass();
+                        r[fieldName] = val;
+                        return r;
+                    }
+                }
+                throw new Error("Could not deserialize string into union.");
+            }
+            else if (isArray(val))
+            {
+                for each (var subclass in Reflect.subclasses(type))
+                {
+                    var serialization = Reflect.lookupMetadata(subclass, "Serialization");
+                    if (serialization === null)
+                    {
+                        continue;
+                    }
+                    var isArrayFound = false, fieldName:String = null;
+                    for each (const [k, v] in serialization.entries)
+                    {
+                        if (k == "array")
+                        {
+                            if (v == "true")
+                            {
+                                isArrayFound = true;
+                            }
+                        }
+                        else if (k == "field")
+                        {
+                            fieldName = v;
+                        }
+                    }
+                    if (isArrayFound && fieldName != null)
+                    {
+                        const propertyType = Reflect.propertyType(subclass, fieldName);
+                        if (propertyType !== null)
+                        {
+                            val = mapParsedIntoType(val, propertyType);
+                        }
+                        const r = new subclass();
+                        r[fieldName] = val;
+                        return r;
+                    }
+                }
+                throw new Error("Could not deserialize array into union.");
+            }
+            else if (typeof val == "object")
+            {
+                for each (var subclass in Reflect.subclasses(type))
+                {
+                    var serialization = Reflect.lookupMetadata(subclass, "Serialization");
+                    if (serialization === null)
+                    {
+                        continue;
+                    }
+                    var isObjectFound = false, fieldName:String = null;
+                    for each (const [k, v] in serialization.entries)
+                    {
+                        if (k == "object")
+                        {
+                            if (v == "true")
+                            {
+                                isObjectFound = true;
+                            }
+                        }
+                        else if (k == "field")
+                        {
+                            fieldName = v;
+                        }
+                    }
+                    if (isObjectFound && fieldName != null)
+                    {
+                        return mapParsedIntoSpecificClass(val, subclass);
+                    }
+                }
+                throw new Error("Could not deserialize object into union.");
+            }
+            else if (typeof val == "number")
+            {
+                for each (var subclass in Reflect.subclasses(type))
+                {
+                    var serialization = Reflect.lookupMetadata(subclass, "Serialization");
+                    if (serialization === null)
+                    {
+                        continue;
+                    }
+                    var isNumberFound = false, fieldName:String = null;
+                    for each (const [k, v] in serialization.entries)
+                    {
+                        if (k == "number")
+                        {
+                            if (v == "true")
+                            {
+                                isNumberFound = true;
+                            }
+                        }
+                        else if (k == "field")
+                        {
+                            fieldName = v;
+                        }
+                    }
+                    if (isNumberFound && fieldName != null)
+                    {
+                        const propertyType = Reflect.propertyType(subclass, fieldName);
+                        if (propertyType !== null)
+                        {
+                            val = propertyType(val);
+                        }
+                        const r = new subclass();
+                        r[fieldName] = val;
+                        return r;
+                    }
+                }
+                throw new Error("Could not deserialize string into union.");
+            }
+            else if (typeof val == "boolean")
+            {
+                for each (var subclass in Reflect.subclasses(type))
+                {
+                    var serialization = Reflect.lookupMetadata(subclass, "Serialization");
+                    if (serialization === null)
+                    {
+                        continue;
+                    }
+                    var isBooleanFound = false, fieldName:String = null;
+                    for each (const [k, v] in serialization.entries)
+                    {
+                        if (k == "boolean")
+                        {
+                            if (v == "true")
+                            {
+                                isBooleanFound = true;
+                            }
+                        }
+                        else if (k == "field")
+                        {
+                            fieldName = v;
+                        }
+                    }
+                    if (isBooleanFound && fieldName != null)
+                    {
+                        const r = new subclass();
+                        r[fieldName] = Boolean(val);
+                        return r;
+                    }
+                }
+                throw new Error("Could not deserialize boolean into union.");
+            }
+            else
+            {
+                throw new Error("Unknown value type for union.");
+            }
         }
 
         private static function jsjsontoas3json(obj:*):Object
