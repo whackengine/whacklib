@@ -120,6 +120,11 @@ package
         public static native function constructTuple(elementTypes:[Class], elements:[*]):Class;
 
         /**
+         * Returns the fully qualified name of a type.
+         */
+        public static native function typeFullName(type:Class):String;
+
+        /**
          * Returns the local name of a type; that is, a name that is not
          * fully qualified.
          */
