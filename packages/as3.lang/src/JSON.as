@@ -5,17 +5,19 @@ package
         private static const m_ns:* = JSBridge.lexical("JSON");
 
         /**
-         * Parses a JSON formatted string.
+         * Parses a JSON formatted string. If `argument2` is specified as a `Class` object,
+         * then parses the JSON string into an instance of that class.
          * 
-         * @param reviver A function of a (`k`, `v`, `context`) signature for filtering or transforming
-         * key value pairs while parsing the JSON string. `context` is passed only when
+         * @param argument2 Either a data type or a reviver as a function of a (`k`, `v`, `context`) signature for filtering or transforming
+         * key value pairs while parsing the JSON string. For reviver, `context` is passed only when
          * reviving primitive values, and contains a `source` property containing
          * the original JSON string of the value.
          */
-        public static function parse(text:String, reviver : function(*, *, Object):* = null):Object
+        public static function parse(text:String, argument2:* = null):Object
         {
-            if (reviver)
+            if (argument2 is Function)
             {
+                const reviver:Function = argument2;
                 reviver = toJavascriptFunction(function(k:*, v:*, ctx:*):*
                 {
                     if (ctx)
@@ -27,16 +29,12 @@ package
                     return reviver(k, v, ctx);
                 });
             }
+            else if (argument2 is Class)
+            {
+                return mapParsedIntoType(parse(text), argument2);
+            }
             var r = m_ns.parse(text, reviver);
             return jsjsontoas3json(r);
-        }
-
-        /**
-         * Parses a JSON formatted string as a given type.
-         */
-        public static function parseAs(text:String, type:Class):Object
-        {
-            return mapParsedIntoType(parse(text), type);
         }
 
         private static function mapParsedIntoType(val:*, type:Class):Object
