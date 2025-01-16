@@ -161,6 +161,10 @@ package
             }
             else
             {
+                if (typeof val != "object")
+                {
+                    throw new TypeError("Expected object, got " + (typeof val) + ".");
+                }
                 const serialization1 = Reflect.lookupMetadata(type, "Serialization");
                 if (serialization1 !== null)
                 {
@@ -168,21 +172,106 @@ package
                     {
                         if (k == "tag")
                         {
-                            //
+                            const r = mapParsedIntoSubclass(val, type, v, String(val[v]));
+                            if (r === null)
+                            {
+                                throw new TypeError("Could not find " + Reflect.typeFullName(type) + " subclass matching the tag '" + val[v] + "'.");
+                            }
+                            return r;
                         }
                         else if (k == "format")
                         {
                             //
+                            throw new Error("Not implemented.");
                         }
                         else if (k == "union")
                         {
                             //
+                            throw new Error("Not implemented.");
                         }
                     }
                 }
 
-                throw new Error("Not implemented.");
+                return mapParsedIntoSpecificClass(val, type);
             }
+        }
+
+        private static function mapParsedIntoSubclass(obj:*, type:Class, tagProperty:String, searchTagName:String):Object
+        {
+            const serialization1 = Reflect.lookupMetadata(type, "Serialization");
+            var tagName:String = null;
+            if (serialization1 !== null)
+            {
+                for each (var [k, v] in serialization1.entries)
+                {
+                    if (k == "tag")
+                    {
+                        if (tagProperty != v)
+                        {
+                            throw new Error("Serialization.tag diverges from base class in subclass " + Reflect.typeFullName(type) + ".");
+                        }
+                    }
+                    else if (k == "rename")
+                    {
+                        tagName = v;
+                    }
+                }
+            }
+
+            tagName ??= Reflect.typeLocalName(type);
+
+            if (tagName == searchTagName)
+            {
+                // Deserialize that class
+                return mapParsedIntoSpecificClass(obj, type);
+            }
+
+            for each (const subclass in Reflect.subclasses(type))
+            {
+                const r = mapParsedIntoSubclass(obj, subclass, tagProperty, searchTagName);
+                if (r !== null)
+                {
+                    return r;
+                }
+            }
+
+            return null;
+        }
+
+        private static function mapParsedIntoSpecificClass(obj:*, type:Class):Object
+        {
+            const r = new type();
+            vars: for each (const variable in Reflect.variables(type))
+            {
+                if (variable.namespace !== null)
+                {
+                    continue;
+                }
+                var jsonField:String = variable.name;
+                for each (const metadata in variable.metadata)
+                {
+                    if (metadata.name == "Serialization")
+                    {
+                        for each (const [k, v] in metadata.entries)
+                        {
+                            if (k == "rename")
+                            {
+                                jsonField = v;
+                            }
+                            else if (k == "skip")
+                            {
+                                if (v == "true")
+                                {
+                                    continue vars;
+                                }
+                            }
+                        }
+                        break;
+                    }
+                }
+                r[variable.name] = mapParsedIntoType(obj[jsonField], variable.type);
+            }
+            return r;
         }
 
         private static function jsjsontoas3json(obj:*):Object
