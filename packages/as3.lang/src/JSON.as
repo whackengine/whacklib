@@ -161,7 +161,26 @@ package
             }
             else
             {
-                //
+                const serialization1 = Reflect.lookupMetadata(type, "Serialization");
+                if (serialization1 !== null)
+                {
+                    for each (var [k, v] in serialization1.entries)
+                    {
+                        if (k == "tag")
+                        {
+                            //
+                        }
+                        else if (k == "format")
+                        {
+                            //
+                        }
+                        else if (k == "union")
+                        {
+                            //
+                        }
+                    }
+                }
+
                 throw new Error("Not implemented.");
             }
         }

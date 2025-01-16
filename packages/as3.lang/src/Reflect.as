@@ -43,15 +43,34 @@ package
          * This method returns an object of the following format:
          *
          * ```as3
-         * {
+         * ({
          *     name: "A",
          *     // entries is [[String, String]]
          *     // Keyless entries have null as the first element
          *     entries: [ ["x", "true"], [null, "hi"] ]
-         * }
+         * })
          * ```
          */
         public static native function lookupMetadata(type:Class, name:String):Object;
+
+        /**
+         * Returns all meta-data from a class. Each meta-data is represented
+         * by a plain object in the form `{ name, entries: [...] }` where
+         * `name` is the meta-data name and `entries` is an array of `[String, String]` tuples.
+         * The first element of each tuple may be `null` if the entry is keyless.
+         *
+         * This method returns objects of the following format:
+         *
+         * ```as3
+         * ({
+         *     name: "A",
+         *     // entries is [[String, String]]
+         *     // Keyless entries have null as the first element
+         *     entries: [ ["x", "true"], [null, "hi"] ]
+         * })
+         * ```
+         */
+        public static native function metadata(type:Class):[Object];
 
         /**
          * Returns description of public or URI-namespace instance variables of a class.
