@@ -18,7 +18,7 @@ package
             if (argument2 is Function)
             {
                 const reviver:Function = argument2;
-                reviver = toJavascriptFunction(function(k:*, v:*, ctx:*):*
+                reviver = toJSFunction(function(k:*, v:*, ctx:*):*
                 {
                     if (ctx)
                     {
@@ -495,11 +495,11 @@ package
 
             if (replacer is Function)
             {
-                replacer = JSBridge.toJavascriptFunction(replacer);
+                replacer = JSBridge.toJSFunction(replacer);
             }
             else if (isArray(replacer))
             {
-                replacer = JSBridge.toJavascriptArray(replacer);
+                replacer = JSBridge.toJSArray(replacer);
             }
 
             return m_ns.stringify(as3jsontojsjson(value), replacer, space);

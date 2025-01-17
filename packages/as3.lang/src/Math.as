@@ -107,7 +107,7 @@ package
             if (rest.length !== 0)
             {
                 rest.unshift(val1, val2);
-                return m_ns.max.apply(undefined, toJavascriptArray(rest));
+                return m_ns.max.apply(undefined, toJSArray(rest));
             }
             return m_ns.max(val1, val2);
         }
@@ -117,7 +117,7 @@ package
             if (rest.length !== 0)
             {
                 rest.unshift(val1, val2);
-                return m_ns.min.apply(undefined, toJavascriptArray(rest));
+                return m_ns.min.apply(undefined, toJSArray(rest));
             }
             return m_ns.min(val1, val2);
         }
