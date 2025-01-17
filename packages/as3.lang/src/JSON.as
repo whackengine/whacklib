@@ -541,9 +541,46 @@ package
                 return r;
             }
 
+            const serialization = Reflect.lookupMetadata(ctor, "Serialization");
+            
+            if (serialization)
+            {
+                for each (var [k, v] in serialization)
+                {
+                    if (k == "tag")
+                    {
+                        return serializableTaggedToPlain(val, ctor, v);
+                    }
+                    else if (k == "union")
+                    {
+                        if (v == "true")
+                        {
+                            return serializableUnionToPlain(val, ctor);
+                        }
+                    }
+                }
+            }
+
+            if (Reflect.hasMethod(val, "toJSON"))
+            {
+                return val.toJSON();
+            }
+
             // See TODO.serialization.md in Whack's central repository for the
             // implementation details.
 
+            todo_FIXME();
+            throw new TypeError("Not implemented.");
+        }
+
+        private static function serializableTaggedToPlain(val:*, type:Class, tagPropertyName:String):Object
+        {
+            todo_FIXME();
+            throw new TypeError("Not implemented.");
+        }
+
+        private static function serializableUnionToPlain(val:*, unionType:Class):Object
+        {
             todo_FIXME();
             throw new TypeError("Not implemented.");
         }
