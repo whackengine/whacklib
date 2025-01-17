@@ -252,6 +252,7 @@ package
                 {
                     continue;
                 }
+
                 var jsonField:String = variable.name;
                 for each (const metadata in variable.metadata)
                 {
@@ -344,6 +345,10 @@ package
                         if (propertyType !== null)
                         {
                             val = mapParsedIntoType(val, propertyType);
+                        }
+                        else
+                        {
+                            val = val.slice(0);
                         }
                         const r = new subclass();
                         r[fieldName] = val;
@@ -542,23 +547,82 @@ package
             }
 
             const serialization = Reflect.lookupMetadata(ctor, "Serialization");
-            
+
             if (serialization)
             {
-                for each (var [k, v] in serialization)
+                var   fieldName:String = null
+                    , tagName:String = null;
+
+                for each (var [k, v] in serialization.entries)
                 {
-                    if (k == "tag")
+                    if (k == "field")
                     {
-                        return serializableTaggedToPlain(val, ctor, v);
+                        fieldName = v;
                     }
-                    else if (k == "union")
+                    else if (k == "rename")
+                    {
+                        tagName = v;
+                    }
+                }
+
+                for each (var [k, v] in serialization.entries)
+                {
+                    if (k == "string")
                     {
                         if (v == "true")
                         {
-                            return serializableUnionToPlain(val, ctor);
+                            return String(val[fieldName]);
+                        }
+                    }
+                    else if (k == "number")
+                    {
+                        if (v == "true")
+                        {
+                            return Number(val[fieldName]);
+                        }
+                    }
+                    else if (k == "object")
+                    {
+                        if (v == "true")
+                        {
+                            return serializableToPlain(val);
+                        }
+                    }
+                    else if (k == "array")
+                    {
+                        if (v == "true")
+                        {
+                            return serializableToPlain(val[fieldName]);
+                        }
+                    }
+                    else if (k == "boolean")
+                    {
+                        if (v == "true")
+                        {
+                            return Boolean(val[fieldName]);
                         }
                     }
                 }
+            }
+
+            var c1 = Reflect.superType(ctor);
+            while (c1 !== null)
+            {
+                const serialization = Reflect.lookupMetadata(c1, "Serialization");
+                if (serialization)
+                {
+                    for each (var [k, v] in serialization.entries)
+                    {
+                        if (k == "tag")
+                        {
+                            const r = serializableToPlain(val);
+                            r[v] = tagName ?? Reflect.typeLocalName(ctor);
+                            return r;
+                        }
+                    }
+                }
+
+                c1 = Reflect.superType(c1);
             }
 
             if (Reflect.hasMethod(val, "toJSON"))
@@ -566,23 +630,47 @@ package
                 return val.toJSON();
             }
 
-            // See TODO.serialization.md in Whack's central repository for the
-            // implementation details.
-
-            todo_FIXME();
-            throw new TypeError("Not implemented.");
+            return specificSerializableTypedObjectToPlain(val, ctor);
         }
 
-        private static function serializableTaggedToPlain(val:*, type:Class, tagPropertyName:String):Object
+        private static function specificSerializableTypedObjectToPlain(obj:*, type:Class):Object
         {
-            todo_FIXME();
-            throw new TypeError("Not implemented.");
-        }
+            const r:Object = {};
 
-        private static function serializableUnionToPlain(val:*, unionType:Class):Object
-        {
-            todo_FIXME();
-            throw new TypeError("Not implemented.");
+            vars: for each (var variable in Reflect.variables(type))
+            {
+                if (variable.naemspace !== null)
+                {
+                    continue;
+                }
+
+                var jsonField:String = variable.name;
+                for each (const metadata in variable.metadata)
+                {
+                    if (metadata.name == "Serialization")
+                    {
+                        for each (const [k, v] in metadata.entries)
+                        {
+                            if (k == "rename")
+                            {
+                                jsonField = v;
+                            }
+                            else if (k == "skip")
+                            {
+                                if (v == "true")
+                                {
+                                    continue vars;
+                                }
+                            }
+                        }
+                        break;
+                    }
+                }
+
+                r[jsonField] = serializableToPlain(obj[variable.name]);
+            }
+
+            return r;
         }
 
         private static function as3jsontojsjson(val:*):*
