@@ -4,7 +4,7 @@ package
      * Dynamic size collection. Indices identifying elements start from the number zero.
      */
     [whack_external(slots="3", local="arrayclass")]
-    public final class Array.<T>
+    public dynamic final class Array.<T>
     {
         public native function Array(...values : [*]);
 
