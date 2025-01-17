@@ -29,6 +29,12 @@ Defines components used by HTML tags.
 
 (Inside whack.base)
 
+### whack.events.\*
+
+(Inside whack.base)
+
+- [ ] `Event#clone()` should use `Object.clone()` by default.
+
 ### whack.gfx.\*
 
 (Outside whack.base)
