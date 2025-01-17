@@ -44,11 +44,5 @@ package
          * Constructs a JavaScript array.
          */
         public static native function newArray():*;
-
-        /**
-         * Returns the `constructor` property of a JavaScript object, or null
-         * if the given value is undefined or null.
-         */
-        public static native function constructorOf(obj:*):*;
     }
 }

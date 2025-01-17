@@ -2,7 +2,7 @@ package
 {
     public static class JSON
     {
-        private static const m_ns:* = JSBridge.lexical("JSON");
+        private static const m_ns:JSVal = JSBridge.lexical("JSON");
 
         /**
          * Parses a JSON formatted string. If `argument2` is specified as a `Class` object,
@@ -460,7 +460,7 @@ package
         {
             if (typeof obj == "object")
             {
-                const ctor = JSBridge.constructorOf(obj);
+                const ctor = obj?.constructor;
                 if (ctor === JSBridge.lexical("Array"))
                 {
                     const r:[*] = [];
