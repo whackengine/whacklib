@@ -507,7 +507,8 @@ package
 
         private static function serializableToPlain(val:*):Object
         {
-            //
+            // See TODO.serialization.md in Whack's central repository for the
+            // implementation details.
 
             todo_FIXME();
             throw new TypeError("Not implemented.");
