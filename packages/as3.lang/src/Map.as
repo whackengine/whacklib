@@ -22,6 +22,11 @@ package
 
         public native function length():Number;
 
+        /**
+         * Indicates whetehr the Map object is weak.
+         */
+        public native function weak():Boolean;
+
         public native function apply(key:*, args:Object):*;
 
         public native function call(key:*, ...args : [*]):*;

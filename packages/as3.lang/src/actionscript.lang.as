@@ -73,6 +73,12 @@ package
     [whack_external]
     public native function isVector(arg:*):Boolean;
 
+    /**
+     * Determines whether a given argument is a tuple object.
+     */
+    [whack_external]
+    public native function isTuple(arg:*):Boolean;
+
     [whack_external]
     public native function isXMLName(str:String):Boolean;
 

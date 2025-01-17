@@ -515,12 +515,30 @@ package
             {
                 return val;
             }
+            if (isArray(val) || isVector(val) || isTuple(val))
+            {
+                const r : [*] = [];
+                for each (var el in val)
+                {
+                    r.push(serializableToPlain(el));
+                }
+                return r;
+            }
             const ctor = Reflect.getConstructor(val);
 
             // Plain object
-            if (ctor == Object)
+            if (ctor == Object || isMap(val))
             {
-                todo_FIXME();
+                if (isMap(val) && val.weak())
+                {
+                    throw new TypeError("Cannot serialize weak Map.");
+                }
+                const r:Object = {};
+                for (var k in val)
+                {
+                    r[k] = serializableToPlain(val[k]);
+                }
+                return r;
             }
 
             // See TODO.serialization.md in Whack's central repository for the
