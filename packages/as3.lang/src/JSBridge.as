@@ -1,21 +1,21 @@
 package
 {
     /**
-     * Conventional namespace used for JavaScript interoperability conversion methods.
-     */
-    public namespace jsbridge_from = "http://whack.net/js/bridge/from";
-
-    /**
-     * Conventional namespace used for JavaScript interoperability conversion methods.
-     */
-    public namespace jsbridge_to = "http://whack.net/js/bridge/to";
-
-    /**
      * Defines special compiler functions that output specialized JavaScript code
      * for interoperability between ActionScript and JavaScript.
      */
     public static class JSBridge
     {
+        /**
+        * Conventional namespace used for JavaScript interoperability conversion methods.
+        */
+        public static namespace from = "http://whack.net/js/bridge/from";
+
+        /**
+        * Conventional namespace used for JavaScript interoperability conversion methods.
+        */
+        public static namespace to = "http://whack.net/js/bridge/to";
+
         /**
          * Resolves a lexical reference.
          */
