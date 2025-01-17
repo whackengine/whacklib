@@ -487,7 +487,7 @@ package
         {
             // If the value to serialize is an user class, convert it to JSON before
             // serializing it.
-            const ctor = Reflect.constructorOf(value);
+            const ctor = Reflect.getConstructor(value);
             if (typeof value == "object" && ctor !== Object)
             {
                 value = typedSerializableObjectToPlain(value, ctor);
@@ -507,6 +507,22 @@ package
 
         private static function serializableToPlain(val:*):Object
         {
+            if (val === undefined || val === null)
+            {
+                return null;
+            }
+            if (typeof val == "number" || typeof val == "boolean" || typeof val == "string")
+            {
+                return val;
+            }
+            const ctor = Reflect.getConstructor(val);
+
+            // Plain object
+            if (ctor == Object)
+            {
+                todo_FIXME();
+            }
+
             // See TODO.serialization.md in Whack's central repository for the
             // implementation details.
 
@@ -525,7 +541,7 @@ package
                 }
                 return r;
             }
-            else if (Reflect.constructorOf(val) === Object)
+            else if (Reflect.getConstructor(val) === Object)
             {
                 const r = JSBridge.newPlainObject();
                 for (var k in val)

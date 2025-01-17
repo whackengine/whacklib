@@ -165,7 +165,7 @@ package
          * @return The constructor reflected as a `Class` object, or `null` if it is an
          * undefined or null value.
          */
-        public static native function constructorOf(object:*):Class;
+        public static native function getConstructor(object:*):Class;
 
         /**
          * Returns the fully qualified name of a type.
