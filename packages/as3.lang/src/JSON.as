@@ -187,10 +187,10 @@ package
                     }
                 }
 
-                // serialization_capabilities::fromJSON()
-                if (Reflect.hasMethod(type, new QName("http://whack.net/2024/actionscript/serialization/capabilities", "fromJSON")))
+                // fromJSON()
+                if (Reflect.hasMethod(type, "fromJSON"))
                 {
-                    return type.serialization_capabilities::["fromJSON"](val);
+                    return type["fromJSON"](val);
                 }
 
                 if (typeof val != "object")

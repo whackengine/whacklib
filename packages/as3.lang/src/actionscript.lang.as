@@ -2,11 +2,6 @@ package
 {
     public namespace AS3 = "http://whack.net/AS3/2024/builtin";
 
-    /**
-     * Namespace used for defining (de)serialization specific methods.
-     */
-    public namespace serialization_capabilities = "http://whack.net/2024/actionscript/serialization/capabilities";
-
     [whack_external]
     public const undefined: * = void 0;
 
