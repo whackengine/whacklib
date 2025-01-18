@@ -50,5 +50,7 @@ package
         public native function values() : [V];
 
         public native function clear():void;
+
+        public native function clone():Map.<K, V>;
     }
 }
