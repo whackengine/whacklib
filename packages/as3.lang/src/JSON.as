@@ -179,7 +179,7 @@ package
                         }
                         else if (k == "union")
                         {
-                            if (v == "true)
+                            if (v == "true")
                             {
                                 return mapUnionIntoType(val, type);
                             }

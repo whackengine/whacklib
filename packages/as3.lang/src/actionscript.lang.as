@@ -26,17 +26,17 @@ package
 
     public function decodeURIComponent(str:String):String
     {
-        return (JSBridge.lexical("decodeURIComponent") as JSVal)(str);
+        return JSVal(JSBridge.lexical("decodeURIComponent"))(str);
     }
 
     public function encodeURI(str:String):String
     {
-        return (JSBridge.lexical("encodeURI") as as JSVal)(str);
+        return JSVal(JSBridge.lexical("encodeURI"))(str);
     }
 
     public function encodeURIComponent(str:String):String
     {
-        return (JSBridge.lexical("encodeURIComponent") as JSVal)(str);
+        return JSVal(JSBridge.lexical("encodeURIComponent"))(str);
     }
 
     public function isFinite(val:Number):Boolean
