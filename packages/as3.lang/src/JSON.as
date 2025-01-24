@@ -149,7 +149,7 @@ package
                 {
                     const elem = val[i];
                     const elemType = elementTypes[i];
-                    elements.push(mapParsedIntoType(el, elemType));
+                    elements.push(mapParsedIntoType(elem, elemType));
                 }
 
                 return Reflect.constructTuple(elementTypes, elements);
@@ -496,7 +496,7 @@ package
             const ctor = Reflect.getConstructor(value);
             if (typeof value == "object" && ctor !== Object)
             {
-                value = typedSerializableObjectToPlain(value, ctor);
+                value = serializableToPlain(value);
             }
 
             if (replacer is Function)
