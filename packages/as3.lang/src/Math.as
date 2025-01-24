@@ -10,7 +10,6 @@ package
         public static const LOG10E:Number = 0.4342944819032518;
         public static const LOG2E:Number = 1.442695040888963387;
         public static const PI:Number = 3.141592653589793;
-        public static const PI:Number = 3.141592653589793;
         public static const SQRT1_2:Number = 0.7071067811865476;
         public static const SQRT2:Number = 1.4142135623730951;
 

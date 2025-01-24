@@ -1,6 +1,7 @@
 package
 {
     import whack.utils.describeType;
+    describeType;
 
     /**
      * Implements type reflection functions that allows inspecting as well as
