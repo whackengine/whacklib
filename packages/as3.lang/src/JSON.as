@@ -15,10 +15,11 @@ package
          */
         public static function parse(text:String, argument2:* = null):Object
         {
+            var reviver:Function = null;
             if (argument2 is Function)
             {
-                const reviver:Function = argument2;
-                reviver = toJSFunction(function(k:*, v:*, ctx:*):*
+                const reviverOrig:Function = argument2;
+                reviver = JSBridge.toJSFunction(function(k:*, v:*, ctx:*):*
                 {
                     if (ctx)
                     {
@@ -26,7 +27,7 @@ package
                         ctx = {};
                         ctx.source = k.source;
                     }
-                    return reviver(k, v, ctx);
+                    return reviverOrig(k, v, ctx);
                 });
             }
             else if (argument2 is Class)
@@ -548,10 +549,11 @@ package
 
             const serialization = Reflect.lookupMetadata(ctor, "Serialization");
 
+            var tagName:String = null;
+
             if (serialization)
             {
-                var   fieldName:String = null
-                    , tagName:String = null;
+                var fieldName:String = null;
 
                 for each (var [k, v] in serialization.entries)
                 {
