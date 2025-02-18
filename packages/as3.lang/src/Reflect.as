@@ -1,13 +1,8 @@
 package
 {
-    import whack.utils.describeType;
-    describeType;
-
     /**
      * Implements type reflection functions that allows inspecting as well as
-     * instantiating types.
-     *
-     * @see whack.utils.describeType
+     * creating types.
      */
     [whack_external(slots="2", local="thereflectclass")]
     public static class Reflect
@@ -74,9 +69,8 @@ package
         public static native function metadata(type:Class):[Object];
 
         /**
-         * Returns description of public or URI-namespace instance variables of a class.
-         *
-         * > Note: this method does not return descriptions of instance variables from base classes.
+         * Returns description of public or URI-namespace instance properties of an object or class.
+         * Virtual properties are included in the output if `virtual` is passed `true`.
          *
          * This method returns arrays of the following format:
          *
@@ -97,17 +91,15 @@ package
          * ]
          * ```
          */
-        public static native function variables(type:Class):[Object];
+        public static native function properties(object:*, virtual:Boolean = false):[Object];
 
         /**
-         * Returns the type of an instance property from the specified class object, or `null`
+         * Returns the type of an instance property from the specified instance or class object, or `null`
          * if it is the `*` type or if the property is not defined.
-         *
-         * > Note: this method does not look for instance properties in base classes.
          *
          * @param propertyName A string or a `QName` object containing an user namespace URI and a local name.
          */
-        public static native function propertyType(type:Class, propertyName:*):Class;
+        public static native function propertyType(object:*, propertyName:*):Class;
 
         /**
          * Returns the element types of a given tuple type, or returns `null`
@@ -130,20 +122,32 @@ package
         /**
          * Instantiates the `Array` class with a given element type, returning an instantiated
          * type.
+         *
+         * This is an alternative to `[T]` or `Array.<T>` expressions.
          */
-        public static native function arrayOf(elementType:Class):Class;
+        public static native function createArrayType(elementType:Class):Class;
 
         /**
          * Instantiates the `Vector` class with a given element type, returning an instantiated
          * type.
+         *
+         * This is an alternative to `Vector.<T>` expressions.
          */
-        public static native function vectorOf(elementType:Class):Class;
+        public static native function createVectorType(elementType:Class):Class;
 
         /**
          * Instantiates the `Map` class with a given element type, returning an instantiated
          * type.
+         *
+         * This is an alternative to `Map.<K, V>` expressions.
          */
-        public static native function mapOf(keyType:Class, valueType:Class):Class;
+        public static native function createMapType(keyType:Class, valueType:Class):Class;
+
+        /**
+         * Creates a tuple type. This serves as an alternative to the `[T1, T2, ...TN]`
+         * type expression.
+         */
+        public static native function createTupleType(elementTypes : [Class]):Class;
 
         /**
          * Determines whether an object has a method of the specified name.
@@ -171,13 +175,13 @@ package
         /**
          * Returns the fully qualified name of a type.
          */
-        public static native function typeFullName(type:Class):String;
+        public static native function qualifiedName(type:Class):String;
 
         /**
          * Returns the local name of a type; that is, a name that is not
          * fully qualified.
          */
-        public static native function typeLocalName(type:Class):String;
+        public static native function localName(type:Class):String;
 
         /**
          * Indicates whether a type is an instantiation of the `Array.<T>` class.

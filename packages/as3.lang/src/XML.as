@@ -64,7 +64,7 @@ package
 
         /**
          * Specifies the type of node:
-         * `text`, `comment`, `processing-instruction`, `attribute`, or `element`.
+         * `text`, `comment`, `processing-instruction`, `attribute`, `element`, or `document`.
          */
         AS3 native function nodeKind():String;
 

@@ -174,7 +174,7 @@ package
                             const r = mapParsedIntoSubclass(val, type, v, String(val[v]));
                             if (r === null)
                             {
-                                throw new TypeError("Could not find " + Reflect.typeFullName(type) + " subclass matching the tag '" + val[v] + "'.");
+                                throw new TypeError("Could not find " + Reflect.qualifiedName(type) + " subclass matching the tag '" + val[v] + "'.");
                             }
                             return r;
                         }
@@ -214,7 +214,7 @@ package
                     {
                         if (tagProperty != v)
                         {
-                            throw new Error("Serialization.tag diverges from base class in subclass " + Reflect.typeFullName(type) + ".");
+                            throw new Error("Serialization.tag diverges from base class in subclass " + Reflect.qualifiedName(type) + ".");
                         }
                     }
                     else if (k == "rename")
@@ -224,7 +224,7 @@ package
                 }
             }
 
-            tagName ??= Reflect.typeLocalName(type);
+            tagName ??= Reflect.localName(type);
 
             if (tagName == searchTagName)
             {
@@ -247,7 +247,7 @@ package
         private static function mapParsedIntoSpecificClass(obj:*, type:Class):Object
         {
             const r = new type();
-            vars: for each (const variable in Reflect.variables(type))
+            vars: for each (const variable in Reflect.properties(type))
             {
                 if (variable.namespace !== null)
                 {
@@ -618,7 +618,7 @@ package
                         if (k == "tag")
                         {
                             const r = serializableToPlain(val);
-                            r[v] = tagName ?? Reflect.typeLocalName(ctor);
+                            r[v] = tagName ?? Reflect.localName(ctor);
                             return r;
                         }
                     }
@@ -639,7 +639,7 @@ package
         {
             const r:Object = {};
 
-            vars: for each (var variable in Reflect.variables(type))
+            vars: for each (var variable in Reflect.properties(type))
             {
                 if (variable.naemspace !== null)
                 {

@@ -4,6 +4,15 @@ package
     public dynamic class Object
     {
         /**
+         * Assigns properties from specified objects to `target` in order.
+         * This method only assigns enumerable properties; for instance, it will not
+         * assign fixture properties from classes.
+         *
+         * @return The `target` object.
+         */
+        public static native function assign(target:*, ...objects : [*]):*;
+
+        /**
          * Clones the given object.
          *
          * This method clones `Map.<T>`, `Array.<T>`, `Vector.<T>`,
