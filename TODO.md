@@ -6,9 +6,13 @@
 
 (Inside whack.base)
 
-- [ ] `Node` implements events `Event.COMPONENT_DID_MOUNT` and `Event.COMPONENT_WILL_UNMOUNT` for `UIComponents` (methods such as `addChild()` and `removeChild()` must trigger them *"RECURSIVELY"*).
+- [ ] `Node` implements events `Event.ENTER_FRAME`, `Event.COMPONENT_DID_MOUNT` and `Event.COMPONENT_WILL_UNMOUNT` for `UIComponents` (methods such as `addChild()` and `removeChild()` must trigger them *"RECURSIVELY"*).
   - `COMPONENT_DID_MOUNT` is dispatched after the component has been added as a descendant of the topmost `Application` component.
   - `COMPONENT_WILL_UNMOUNT` is dispatched before the component is removed as a descendant from the topmost `Application` component.
+
+### Enter frame event
+
+- [ ] Dispatch it when entering frames on `whack.components.UIComponent` and `whack.gfx.DisplayObject`.
 
 ### whack.components.\*
 
