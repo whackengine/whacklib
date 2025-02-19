@@ -6,7 +6,9 @@
 
 (Inside whack.base)
 
-- [ ] `Node` implements events `Event.ADDED_TO_APPLICATION` and `Event.REMOVED_FROM_APPLICATION` for `UIComponents` (methods such as `addChild()` and `removeChild()` must trigger them *"RECURSIVELY"*).
+- [ ] `Node` implements events `Event.COMPONENT_DID_MOUNT` and `Event.COMPONENT_WILL_UNMOUNT` for `UIComponents` (methods such as `addChild()` and `removeChild()` must trigger them *"RECURSIVELY"*).
+  - `COMPONENT_DID_MOUNT` is dispatched after the component has been added as a descendant of the topmost `Application` component.
+  - `COMPONENT_WILL_UNMOUNT` is dispatched before the component is removed as a descendant from the topmost `Application` component.
 
 ### whack.components.\*
 
@@ -21,7 +23,7 @@ Mechanisms:
 - [ ] Nest themes. Components may link an optional theme to be nested with that of the `Application`.
 - [ ] When theme is updated (hierarchically), trigger `Event.THEME_UPDATE` for every descendant of a component.
 - [ ] Provide CSS color retrieval method for a specific `UIComponent` (computes browser's CSS `color` property).
-- [ ] On `Event.REMOVED_FROM_APPLICATION`, ensure internally generated CSS blocks are disposed from components that generated them.
+- [ ] On `Event.COMPONENT_WILL_UNMOUNT`, ensure internally generated CSS blocks are disposed from components that generated them.
 
 ### whack.components.hypertext
 
@@ -47,7 +49,7 @@ Defines components used by HTML tags.
 
 - [ ] `Color` (wrap the NPM `color` package)
 - [ ] Provide `ColorObserver`, which triggers `ColorObserverEvent.UPDATE_COLOR` with `color : whack.utils.Color` whenever CSS character color is possibly updated.
-  - [ ] Implementation: constructor takes (*component*) and checks for `Event.THEME_UPDATE` (use setTimeout of 90ms to trigger update), and, for every parent, checks for `FocusEvent.FOCUS_IN`, `FocusEvent.FOCUS_OUT`, `MouseEvent.MOUSE_DOWN`, `MouseEvent.CLICK`, `MouseEvent.MOUSE_OVER`, `MouseEvent.MOUSE_UP`, `MouseEvent.MOUSE_OUT` (these listeners are removed on `Event.REMOVED_FROM_APPLICATION`). On `Event.ADDED_TO_APPLICATION`, trigger `ColorObserverEvent.UPDATE_COLOR` once (use setTimeout of 70ms to trigger update).
+  - [ ] Implementation: constructor takes (*component*) and checks for `Event.THEME_UPDATE` (use setTimeout of 90ms to trigger update), and, for every parent, checks for `FocusEvent.FOCUS_IN`, `FocusEvent.FOCUS_OUT`, `MouseEvent.MOUSE_DOWN`, `MouseEvent.CLICK`, `MouseEvent.MOUSE_OVER`, `MouseEvent.MOUSE_UP`, `MouseEvent.MOUSE_OUT` (these listeners are removed on `Event.COMPONENT_WILL_UNMOUNT`). On `Event.COMPONENT_DID_MOUNT`, trigger `ColorObserverEvent.UPDATE_COLOR` once (use setTimeout of 70ms to trigger update).
   - [ ] Implementation: get `color` CSS property's value from HTML element's computed style.
   - [ ] Use-cases: icons adaptive to light or dark themes.
   - [ ] Document it
