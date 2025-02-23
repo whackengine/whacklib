@@ -44,7 +44,7 @@ package
 
         AS3 native function lastIndexOf(searchElement:T, fromIndex:int = 0x7FFFFFFF):int;
 
-        AS3 native function map(callback : function(T,int,[T]):*, thisObject:* = null) : *;
+        AS3 native function map(callback : function(T,int,[T]):*, thisObject:* = null) : [*];
 
         /**
          * Removes the last element of the array and returns it.
