@@ -59,7 +59,7 @@ package
 
         AS3 native function lastIndexOf(searchElement:T, fromIndex:int = 0x7FFFFFFF):int;
 
-        AS3 native function map(callback : function(T,int,Vector.<T>):*, thisObject:* = null) : *;
+        AS3 native function map(callback : function(T,int,Vector.<T>):*, thisObject:* = null) : Vector.<*>;
 
         /**
          * Removes the last element of the vector and returns it.
