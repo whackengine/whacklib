@@ -202,5 +202,15 @@ package
          * Indicates whether a type is an instantiation of the `Vector.<T>` class.
          */
         public static native function isVectorType(type:Class):Boolean;
+
+        /**
+         * Indicates whether a given type is a class or not.
+         */
+        public static native function isClass(type:Class):Boolean;
+
+        /**
+         * Indicates whether a class's constructor is optional or not.
+         */
+        public static native function hasOptionalConstructor(type:Class):Boolean;
     }
 }

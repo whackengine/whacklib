@@ -246,6 +246,14 @@ package
 
         private static function mapParsedIntoSpecificClass(obj:*, type:Class):Object
         {
+            if (!Reflect.isClass(type))
+            {
+                throw new TypeError("Cannot parse JSON into a non class type.");
+            }
+            if (!Reflect.hasOptionalConstructor(type))
+            {
+                throw new TypeError("Cannot parse JSON into " + Reflect.qualifiedName(type) + " as its constructor is not optional.");
+            }
             const r = new type();
             vars: for each (const variable in Reflect.properties(type))
             {
