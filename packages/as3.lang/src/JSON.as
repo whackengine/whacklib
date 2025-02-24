@@ -167,6 +167,10 @@ package
                     {
                         if (k == "tag")
                         {
+                            if (val === null)
+                            {
+                                return null;
+                            }
                             if (typeof val != "object")
                             {
                                 throw new TypeError("Expected object, got " + (typeof val) + ".");
@@ -192,6 +196,11 @@ package
                 if (Reflect.hasMethod(type, "fromJSON"))
                 {
                     return type["fromJSON"](val);
+                }
+
+                if (val === null)
+                {
+                    return null;
                 }
 
                 if (typeof val != "object")
