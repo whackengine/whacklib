@@ -257,7 +257,7 @@ package
         {
             if (!Reflect.isClass(type))
             {
-                throw new TypeError("Cannot parse JSON into non class type " + + Reflect.qualifiedName(type) + ".");
+                throw new TypeError("Cannot parse JSON into non class type " + Reflect.qualifiedName(type) + ".");
             }
             if (!Reflect.hasOptionalConstructor(type))
             {
