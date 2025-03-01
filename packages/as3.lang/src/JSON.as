@@ -160,7 +160,7 @@ package
             }
             else
             {
-                const serialization1 = Reflect.lookupMetadata(type, "Serialization");
+                const serialization1 = Reflect.lookupMetadata(type, "Ser");
                 if (serialization1 !== null)
                 {
                     for each (var [k, v] in serialization1.entries)
@@ -213,7 +213,7 @@ package
 
         private static function mapParsedIntoSubclass(obj:*, type:Class, tagProperty:String, searchTagName:String):Object
         {
-            const serialization1 = Reflect.lookupMetadata(type, "Serialization");
+            const serialization1 = Reflect.lookupMetadata(type, "Ser");
             var tagName:String = null;
             if (serialization1 !== null)
             {
@@ -223,7 +223,7 @@ package
                     {
                         if (tagProperty != v)
                         {
-                            throw new Error("Serialization.tag diverges from base class in subclass " + Reflect.qualifiedName(type) + ".");
+                            throw new Error("Ser.tag diverges from base class in subclass " + Reflect.qualifiedName(type) + ".");
                         }
                     }
                     else if (k == "rename")
@@ -274,7 +274,7 @@ package
                 var jsonField:String = variable.name;
                 for each (const metadata in variable.metadata)
                 {
-                    if (metadata.name == "Serialization")
+                    if (metadata.name == "Ser")
                     {
                         for each (const [k, v] in metadata.entries)
                         {
@@ -304,7 +304,7 @@ package
             {
                 for each (var subclass in Reflect.subclasses(type))
                 {
-                    var serialization = Reflect.lookupMetadata(subclass, "Serialization");
+                    var serialization = Reflect.lookupMetadata(subclass, "Ser");
                     if (serialization === null)
                     {
                         continue;
@@ -337,7 +337,7 @@ package
             {
                 for each (var subclass in Reflect.subclasses(type))
                 {
-                    var serialization = Reflect.lookupMetadata(subclass, "Serialization");
+                    var serialization = Reflect.lookupMetadata(subclass, "Ser");
                     if (serialization === null)
                     {
                         continue;
@@ -379,7 +379,7 @@ package
             {
                 for each (var subclass in Reflect.subclasses(type))
                 {
-                    var serialization = Reflect.lookupMetadata(subclass, "Serialization");
+                    var serialization = Reflect.lookupMetadata(subclass, "Ser");
                     if (serialization === null)
                     {
                         continue;
@@ -406,7 +406,7 @@ package
             {
                 for each (var subclass in Reflect.subclasses(type))
                 {
-                    var serialization = Reflect.lookupMetadata(subclass, "Serialization");
+                    var serialization = Reflect.lookupMetadata(subclass, "Ser");
                     if (serialization === null)
                     {
                         continue;
@@ -444,7 +444,7 @@ package
             {
                 for each (var subclass in Reflect.subclasses(type))
                 {
-                    var serialization = Reflect.lookupMetadata(subclass, "Serialization");
+                    var serialization = Reflect.lookupMetadata(subclass, "Ser");
                     if (serialization === null)
                     {
                         continue;
@@ -564,7 +564,7 @@ package
                 return r;
             }
 
-            const serialization = Reflect.lookupMetadata(ctor, "Serialization");
+            const serialization = Reflect.lookupMetadata(ctor, "Ser");
 
             var tagName:String = null;
 
@@ -627,7 +627,7 @@ package
             var c1 = Reflect.superType(ctor);
             while (c1 !== null)
             {
-                const serialization = Reflect.lookupMetadata(c1, "Serialization");
+                const serialization = Reflect.lookupMetadata(c1, "Ser");
                 if (serialization)
                 {
                     for each (var [k, v] in serialization.entries)
@@ -666,7 +666,7 @@ package
                 var jsonField:String = variable.name;
                 for each (const metadata in variable.metadata)
                 {
-                    if (metadata.name == "Serialization")
+                    if (metadata.name == "Ser")
                     {
                         for each (const [k, v] in metadata.entries)
                         {
